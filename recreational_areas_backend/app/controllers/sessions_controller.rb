@@ -1,8 +1,8 @@
 class SessionController < ApplicationController
     def create
-        user = User.find_by(email: params[:user][:email]).try(:authenticat, params[:user][:password])
+        user = User.find_by(email: params[:user][:email])
 
-        if user
+        if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
 
             render json: 
@@ -14,7 +14,8 @@ class SessionController < ApplicationController
         else
             render json:
             { 
-                status: 401 
+                status: 401,
+                message: "Unable to create account. Please try again."
             }
         end
     end
