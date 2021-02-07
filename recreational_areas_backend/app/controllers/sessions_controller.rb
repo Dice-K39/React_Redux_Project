@@ -12,7 +12,10 @@ class SessionController < ApplicationController
                 user: user 
             }
         else
-            render json: { status: 401 }
+            render json:
+            { 
+                status: 401 
+            }
         end
     end
 end
