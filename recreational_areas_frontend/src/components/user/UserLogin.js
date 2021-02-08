@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class UserLogin extends Component 
+class UserLogIn extends Component 
 {
     render() 
     {
@@ -12,4 +12,4 @@ class UserLogin extends Component
     }
 }
 
-export default UserLogin;
+export default UserLogIn;
