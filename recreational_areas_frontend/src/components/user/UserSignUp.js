@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { userRegister } from "../../actions/userAuthentication";
 
-class UserRegisteration extends Component 
+class UserSignUp extends Component 
 {
     state =
     {
@@ -58,4 +58,4 @@ class UserRegisteration extends Component
     }
 }
 
-export default connect(null, { userRegister })(UserRegisteration);
+export default connect(null, { userRegister })(UserSignUp);

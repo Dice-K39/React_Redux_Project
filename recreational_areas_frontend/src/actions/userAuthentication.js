@@ -18,7 +18,7 @@ export const userRegister = user =>
             })
                 .then(res => res.json())
                 .then(data =>
-                    {debugger
+                    {
                         if (data.status === 500)
                         {
                             console.log(data.message);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserRegisteration from "../components/user/UserRegisteration";
+import UserSignUp from "../components/user/UserSignUp";
+import UserLogIn from "../components/user/UserLogIn";
 
 class RecreationalAreasContainer extends Component 
 {
@@ -10,7 +11,8 @@ class RecreationalAreasContainer extends Component
             <div>
                 <Router>
                     <Switch>
-                        <Route path="/register" component={UserRegisteration} />
+                        <Route path="/signup" component={UserSignUp} />
+                        <Route path="/login" component={UserLogIn} />
                     </Switch>
                 </Router>
             </div>
