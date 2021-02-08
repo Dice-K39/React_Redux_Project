@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { userRegister } from "../../actions/userAuthentication";
+import { userRegister } from "../../actions/UserAuthentication";
 
 class UserSignUp extends Component 
 {
