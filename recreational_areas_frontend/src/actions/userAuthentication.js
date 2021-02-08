@@ -1,4 +1,4 @@
-const URL = "http://localhost:4000";
+const URL = "http://localhost:3000";
 
 export const userRegister = user => 
 {
@@ -18,17 +18,24 @@ export const userRegister = user =>
             })
                 .then(res => res.json())
                 .then(data =>
-                    {
-                        dispatch(
-                            {
-                                type: "AUTH_SUCCESS",
-                                payload: 
+                    {debugger
+                        if (data.status === 500)
+                        {
+                            console.log(data.message);
+                        }
+                        else
+                        {
+                            dispatch(
                                 {
-                                    loggedIn: data.logged_in, 
-                                    currentUser: data.user
+                                    type: "AUTH_SUCCESS",
+                                    payload: 
+                                    {
+                                        loggedIn: data.logged_in, 
+                                        currentUser: data.user
+                                    }
                                 }
-                            }
-                        )
+                            )
+                        }
                     })
         }
     );
