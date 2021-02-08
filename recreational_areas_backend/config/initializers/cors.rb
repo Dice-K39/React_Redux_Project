@@ -1,7 +1,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
         origins "http://localhost:4000"
-        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete], credentials: true
     end
 
     # If I want to upload to a domain

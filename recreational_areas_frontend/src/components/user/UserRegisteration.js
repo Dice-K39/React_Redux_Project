@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { userRegister } from "../../actions/userAuthentication";
 
 class UserRegisteration extends Component 
 {
@@ -20,7 +23,9 @@ class UserRegisteration extends Component
 
     handleOnSubmit = event =>
     {
-        
+        event.preventDefault();
+
+        this.props.userRegister(this.state);
     }
 
     render() 
@@ -40,7 +45,7 @@ class UserRegisteration extends Component
                     <br />
                     <br />
 
-                    <abel className="label">Re-enter Password:</abel>
+                    <label className="label">Re-enter Password:</label>
                     <input type="password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleOnChange} />
 
                     <br />
@@ -53,4 +58,4 @@ class UserRegisteration extends Component
     }
 }
 
-export default UserRegisteration;
+export default connect(null, { userRegister })(UserRegisteration);
