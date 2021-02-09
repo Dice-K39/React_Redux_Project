@@ -18,5 +18,30 @@ class SessionsController < ApplicationController
                 message: "Unable to log in to account. Please try again."
             }
         end
+
+        def logged_in
+            if current_user
+                render json:
+                {
+                    logged_in: true,
+                    user: current_user
+                }
+            else
+                render json:
+                {
+                    logged_in: false
+                }
+            end
+        end
+
+        def logout
+            reset_session
+
+            render json:
+            {
+                status: 200,
+                logged_out: true
+            }
+        end
     end
 end
