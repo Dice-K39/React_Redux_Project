@@ -9,7 +9,7 @@ const allReducers = combineReducers(
     {
         example: reducer,
         authentication: authReducer
-    })
+    });
 
 export const store = createStore(
     allReducers,
