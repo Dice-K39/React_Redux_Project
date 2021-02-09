@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
 import NavBar from "./components/navbar/NavBar";
 import UserSignUp from "./components/user/UserSignUp";
 import UserLogIn from "./components/user/UserLogIn";

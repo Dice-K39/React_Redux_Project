@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { userRegister } from "../../actions/UserAuthentication";
+import { userSignUp } from "../../redux/actions/UserAuthentication";
 
 class UserSignUp extends Component 
 {
@@ -25,13 +25,13 @@ class UserSignUp extends Component
     {
         event.preventDefault();
 
-        this.props.userRegister(this.state);
+        this.props.userSignUp(this.state, this.props.history);
     }
 
     render() 
     {
         return (
-            <div>
+            <div className="sign-up">
                 <form onSubmit={this.handleOnSubmit}>
                     <label className="label">Email:</label>
                     <input type="text" name="email" value={this.state.email} onChange={this.handleOnChange} />
@@ -51,11 +51,11 @@ class UserSignUp extends Component
                     <br />
                     <br />
 
-                    <button className="button is-primary" type="submit">Register</button>
+                    <button className="button is-link" type="submit">Sign Up</button>
                 </form>
             </div>
         )
     }
 }
 
-export default connect(null, { userRegister })(UserSignUp);
+export default connect(null, { userSignUp })(UserSignUp);
