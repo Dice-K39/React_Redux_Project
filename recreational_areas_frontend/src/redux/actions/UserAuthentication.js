@@ -52,7 +52,7 @@ export const userLogIn = (user, history) =>
             method: "POST",
             headers:
             {
-                "Content-Type": "appplication/json",
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             credentials: "include",
@@ -63,7 +63,7 @@ export const userLogIn = (user, history) =>
                 {
                     dispatch(
                         {
-                            type: "AUTH_SUCCCESS",
+                            type: "AUTH_SUCCESS",
                             payload:
                             {
                                 loggedIn: data.logged_in,
@@ -74,5 +74,27 @@ export const userLogIn = (user, history) =>
 
                     history.push("/");
                 })
-    }
+    };
+}
+
+export const userLogOut = (history) =>
+{
+    return dispatch =>
+    {
+        fetch(URL + "/logout",
+        {
+            method: "DELETE",
+            credentials: "include"
+        })
+            .then(res => res.json())
+            .then(data =>
+            {
+                dispatch(
+                {
+                    type: "LOGOUT"
+                });
+
+                history.push("/");
+            });
+    };
 }

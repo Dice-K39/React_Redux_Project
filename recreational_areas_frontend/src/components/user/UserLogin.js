@@ -24,7 +24,7 @@ class UserLogIn extends Component
     {
         event.preventDefault();
 
-        this.props.login(this.state, this.props.history)
+        this.props.userLogIn(this.state, this.props.history)
     }
 
     render() 
