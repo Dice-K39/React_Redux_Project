@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class UserHomeContainer extends Component 
+class HomeContainer extends Component 
 {
     render() 
     {
         return (
             <div>
-                {this.props.isLoggedIn}
+                HomeContainer
+                {this.props.isLoggedIn ? "Logged In" : "Not Logged In"}
             </div>
         )
     }
@@ -17,9 +18,9 @@ const mapStateToProps = state =>
 {
     return (
         {
-            isLoggedIn: state.authentication.loggedIn
+            isLoggedIn: state.auth.loggedIn
         }
     )
 }
 
-export default connect(mapStateToProps)(UserHomeContainer);
+export default connect(mapStateToProps)(HomeContainer);

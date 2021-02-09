@@ -1243,3 +1243,21 @@ Processing by UsersController#create as JSON
 Completed 200 OK in 229ms (Views: 0.8ms | ActiveRecord: 2.5ms | Allocations: 8911)
 
 
+Started POST "/users" for ::1 at 2021-02-09 16:25:41 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "unice@unice.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "unice@unice.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "unice@unice.com"], ["password_digest", "$2a$12$Max2W.215RIpV.SlzZ0USud44T/sop3oXBdqe3QFc/7HQQmo/e/fS"], ["created_at", "2021-02-09 21:25:42.229216"], ["updated_at", "2021-02-09 21:25:42.229216"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 226ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 8989)
+
+

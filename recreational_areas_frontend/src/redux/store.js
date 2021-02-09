@@ -8,7 +8,7 @@ import { authReducer } from "./reducers/authReducer";
 const allReducers = combineReducers(
     {
         example: reducer,
-        authentication: authReducer
+        auth: authReducer
     });
 
 export const store = createStore(
