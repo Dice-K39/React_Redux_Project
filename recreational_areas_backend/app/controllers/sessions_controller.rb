@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
             render json:
             { 
                 status: 401,
-                message: "Unable to create account. Please try again."
+                message: "Unable to log in to account. Please try again."
             }
         end
     end
