@@ -1554,3 +1554,31 @@ Processing by SessionsController#logout as */*
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 273)
 
 
+Started POST "/sessions" for ::1 at 2021-02-09 21:28:05 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "unice@unice.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 23745ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 153029)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-09 21:28:35 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 22480ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 26096)
+
+
+Started POST "/sessions" for ::1 at 2021-02-09 21:29:13 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "unice@unice.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 10335ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 31050)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-09 21:29:28 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 28926ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 151811)
+
+
