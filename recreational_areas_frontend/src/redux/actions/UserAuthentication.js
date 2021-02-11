@@ -1,7 +1,7 @@
-const URL = "http://localhost:3001";
+const URL = "http://localhost:3000";
 
 export const userSignUp = (user, history) => 
-{debugger
+{
     return (
         dispatch =>
         {
@@ -13,7 +13,6 @@ export const userSignUp = (user, history) =>
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                credentials: "include",
                 body: JSON.stringify({ user: user })
             })
                 .then(res => res.json())
@@ -44,7 +43,7 @@ export const userSignUp = (user, history) =>
 }
 
 export const userLogIn = (user, history) =>
-{debugger
+{
     return dispatch =>
     {
         fetch(URL + "/sessions",
@@ -55,7 +54,6 @@ export const userLogIn = (user, history) =>
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            credentials: "include",
             body: JSON.stringify({ user: user })
         })
             .then(res => res.json())
@@ -83,8 +81,7 @@ export const userLogOut = (history) =>
     {
         fetch(URL + "/logout",
         {
-            method: "DELETE",
-            credentials: "include"
+            method: "DELETE"
         })
             .then(res => res.json())
             .then(data =>
