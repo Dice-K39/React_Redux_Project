@@ -1,22 +1,23 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import "./App.css";
-import NavBar from "./components/navbar/NavBar";
-import IndexContainer from "./containers/IndexContainer";
-import UserSignUp from "./components/user/UserSignUp";
-import UserLogIn from "./components/user/UserLogIn";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <NavBar />
-         <Switch>
-          <Route exact path="/" component={IndexContainer} />
-          <Route path="/signup" component={UserSignUp} />
-          <Route path="/login" component={UserLogIn} />
-         </Switch>
-      </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
