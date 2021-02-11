@@ -2,6 +2,32 @@ import React, { Component } from "react";
 
 class SearchBar extends Component 
 {
+    state = 
+    {
+        keyword: "",
+        activity: "",
+        state: ""
+    }
+
+    handleOnChange = (event) =>
+    {
+        this.setState(
+            {
+                [event.target.name]: event.target.value
+            }
+        );
+    };
+
+    handleOnClick = (event) =>
+    {
+        if (event.target.id === "submit")
+        {
+            event.preventDefault();
+
+            
+        }
+    }
+
     render() 
     {
         return (
@@ -12,21 +38,21 @@ class SearchBar extends Component
 
                 <label className="label">Keyword Search:</label>
                 <div className="control">
-                    <input className="input" type="text" id="keyword_query" placeholder="Input Keyword" />
+                    <input className="input" type="text" name="keyword" placeholder="Input Keyword" value={this.state.keyword} onChange={this.handleOnChange} />
                 </div>
 
                 <br />
 
                 <label className="label">Activity Search:</label>
                 <div className="control">
-                    <input className="input" type="text" id="activity_query" placeholder="Input Activity" />
+                    <input className="input" type="text" name="activity" placeholder="Input Activity" value={this.state.activity} onChange={this.handleOnChange} />
                 </div>
 
                 <br />
 
-                <label>State:</label>
+                <label className="label">State:</label>
                 <div className="control">
-                    <select name="state">
+                    <select name="state" onChange={this.handleOnChange}>
                         <option value="">None</option> 
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -84,10 +110,10 @@ class SearchBar extends Component
 
                 <br />
 
-                <div class="buttons">
-                    <button className="button is-primary" id="submit">Submit</button>
-                    <button className="button is-danger" id="reset">Reset</button>
-                    <button className="button is-warning" id="sort">Sort Favorites</button>
+                <div className="buttons">
+                    <button className="button is-primary" id="submit" onClick={this.handleOnClick}>Submit</button>
+                    <button className="button is-danger" >Reset</button>
+                    <button className="button is-warning" >Sort Favorites</button>
                 </div>
             </div>
         )
