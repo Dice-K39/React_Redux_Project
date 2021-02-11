@@ -1103,3 +1103,18 @@ Processing by SearchController#search as */*
 Completed 200 OK in 556ms (Views: 36.6ms | ActiveRecord: 0.0ms | Allocations: 22860)
 
 
+Started POST "/sessions" for ::1 at 2021-02-11 16:04:59 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 208ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 966)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=GA" for ::1 at 2021-02-11 16:05:08 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 420ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 22043)
+
+
