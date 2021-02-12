@@ -36,6 +36,6 @@ class RecreationalAreasController < ApplicationController
     end
 
     def find_user
-        @user = Api::V1::User.find_by_id(params[:user_id])
+        @user = User.find_by_id(params[:user_id])
     end
 end

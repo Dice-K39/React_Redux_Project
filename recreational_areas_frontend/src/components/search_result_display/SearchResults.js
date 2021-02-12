@@ -13,7 +13,7 @@ class SearchResults extends Component
                     (Object.entries(this.props.searchResults).length !== 0) ? 
                     (
                         this.props.searchResults.map((area, i) => 
-                            <SearchResultsCard area={area} key={i + 1} id={i + 1} />
+                            <SearchResultsCard area={area} key={i + 1} id={i + 1} currentUser={this.props.currentUser} />
                         )
                     ) 
                     : 
@@ -28,7 +28,8 @@ const mapStateToProps = state =>
 {
     return (
         {
-            searchResults: state.search.results
+            searchResults: state.search.results,
+            currentUser: state.auth.currentUser
         }
     )
 }

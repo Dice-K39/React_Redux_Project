@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # creating users
-  resources :users, only: [:create]
+  resources :users, only: [:create] do
+    resources :recreational_areas, only: [:index, :create, :destroy]
+  end
   
   # session routes
   resources :sessions, only: [:create]
