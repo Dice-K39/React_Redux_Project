@@ -14,14 +14,13 @@ const NavBar = (props) =>
         
         history.push(path);
     }
-    
   
     return (
         <div>
             <nav className="navbar is-fixed-top is-warning">
-                <div className="signup-login-button is-flex navbar-end">
+                <nav className="signup-login-button is-flex navbar-end">
                     {
-                        props.isLoggedIn ?
+                        (props.isLoggedIn) ?
                         (
                             <div>
                                 <button className="button is-danger" name="/logout" onClick={() => dispatch(userLogOut(history))}>Log Out</button>
@@ -34,7 +33,7 @@ const NavBar = (props) =>
                             </div>
                         )
                     }
-                </div>
+                </nav>
             </nav>
         </div>
     )

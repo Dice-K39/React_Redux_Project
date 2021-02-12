@@ -1,6 +1,5 @@
 const initialState =
 {
-    recreationalAreas: [],
     thisIsState: "This is application state."
 }
 
