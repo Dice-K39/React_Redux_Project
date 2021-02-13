@@ -20,7 +20,12 @@ export const userSignUp = (user, history) =>
                     {
                         if (data.status === 500)
                         {
-                            console.log(data.message);
+                            dispatch(
+                                {
+                                    type: "AUTH_FAIL",
+                                    payload: data
+                                }
+                            );
                         }
                         else
                         {
