@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import FavoritesCard from "./FavoritesCard";
+import { getFavorites } from "../../redux/actions/Favorites";
 
 class FavoritesBar extends Component
 {
+    componentDidMount()
+    {
+        this.props.getFavorites(this.props.currentUser)
+    }
+
     render()
     {
         return (
@@ -27,4 +33,4 @@ const mapStateToProps = state =>
     )
 }
 
-export default connect(mapStateToProps)(FavoritesBar);
+export default connect(mapStateToProps, { getFavorites })(FavoritesBar);

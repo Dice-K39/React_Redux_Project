@@ -5062,3 +5062,316 @@ Processing by RecreationalAreasController#create as JSON
 Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 4128)
 
 
+Started DELETE "/logout" for ::1 at 2021-02-13 02:28:00 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#logout as */*
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started POST "/sessions" for ::1 at 2021-02-13 02:38:12 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 264ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 958)
+
+
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:41:39 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1427)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:42:30 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1446)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:42:39 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1414)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:42:58 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1414)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:11 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1415)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:17 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:25 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:30 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:36 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:43:54 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:44:03 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1413)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started DELETE "/logout" for ::1 at 2021-02-13 02:44:40 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started POST "/sessions" for ::1 at 2021-02-13 02:44:50 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 262ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 944)
+
+
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:44:50 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1414)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started DELETE "/logout" for ::1 at 2021-02-13 02:45:14 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-13 02:45:34 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 271ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 943)
+
+
+Started GET "/users/undefined/recreational_areas" for ::1 at 2021-02-13 02:46:52 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms | Allocations: 1414)
+
+
+  
+NoMethodError (undefined method `recreational_areas' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:5:in `index'
+Started POST "/sessions" for ::1 at 2021-02-13 02:46:58 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 258ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 940)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-13 02:47:17 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.5ms | Allocations: 2712)
+
+
+Started POST "/sessions" for ::1 at 2021-02-13 02:49:09 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 259ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-13 02:49:13 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 2492)
+
+
+Started POST "/sessions" for ::1 at 2021-02-13 02:50:04 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 259ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 942)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-13 02:50:05 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.6ms | Allocations: 2492)
+
+
+Started DELETE "/users/1/recreational_areas/24" for ::1 at 2021-02-13 02:50:23 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"24", "recreational_area"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:25:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[36mRecreationalArea Destroy (1.8ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 24]]
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 3704)
+
+
+Started DELETE "/users/1/recreational_areas/28" for ::1 at 2021-02-13 02:51:00 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"28", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:25:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 28]]
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3544)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-13 02:51:13 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 345ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 23321)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-13 02:51:18 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Blackwater National Wildlife Refuge Waterfowl Hunt Permits", "facility_description"=>"", "facility_id"=>"5151515", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Blackwater National Wildlife Refuge Waterfowl Hunt Permits"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+Completed 409 Conflict in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1767)
+
+
+Started DELETE "/users/1/recreational_areas/undefined" for ::1 at 2021-02-13 02:51:38 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"undefined", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:25:in `destroy'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 2329)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/recreational_areas_controller.rb:27:in `destroy'

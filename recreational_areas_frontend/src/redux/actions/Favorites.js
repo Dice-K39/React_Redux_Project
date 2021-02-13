@@ -45,6 +45,26 @@ export const saveFavorites = (areaData, currentUser) =>
     );
 }
 
+export const getFavorites = currentUser =>
+{
+    const URL = BASE_URL + `/${currentUser.id}/recreational_areas`
+
+    return (
+        dispatch =>
+        fetch(URL)
+            .then(res => res.json())
+            .then(data =>
+            {
+                dispatch(
+                    {
+                        type: "GET_FAVORITES",
+                        payload: data
+                    }
+                )
+            })
+    );
+}
+
 export const deleteFavorites = (areaData, currentUser) =>
 {
     const URL = BASE_URL + `/${currentUser.id}/recreational_areas/${areaData.id}`

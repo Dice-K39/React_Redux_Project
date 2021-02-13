@@ -13,7 +13,15 @@ export const favoritesReducer = (state = initialState, action) =>
                 {
                     favorites: [...state.favorites, action.payload.favorite]
                 }
-            )
+            );
+        }
+        case "GET_FAVORITES":
+        {debugger
+            return (
+                {
+                    favorites: [...action.payload]
+                }
+            );
         }
         case "FAVORITE_DELETED":
         {
@@ -23,7 +31,7 @@ export const favoritesReducer = (state = initialState, action) =>
                 {
                     favorites: [...newFavoritesArray]
                 }
-            )
+            );
         }
         default:
         {
