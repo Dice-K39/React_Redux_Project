@@ -12,7 +12,7 @@ const allReducers = combineReducers(
         example: reducer,
         auth: authReducer,
         search: searchResultReducer,
-        favorite: favoritesReducer
+        favorites: favoritesReducer
     });
 
 export const store = createStore(

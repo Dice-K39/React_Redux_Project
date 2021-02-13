@@ -1,6 +1,8 @@
+const BASE_URL = "http://localhost:3000/users"
+
 export const saveFavorites = (areaData, currentUser) =>
 {
-    const URL = `http://localhost:3000/users/${currentUser.id}/recreational_areas`;
+    const URL = BASE_URL + `/${currentUser.id}/recreational_areas`;
 
     return (
         dispatch =>
@@ -41,4 +43,34 @@ export const saveFavorites = (areaData, currentUser) =>
             })
         }
     );
+}
+
+export const deleteFavorites = (areaData, currentUser) =>
+{
+    const URL = BASE_URL + `/${currentUser.id}/recreational_areas/${areaData.id}`
+
+    return (
+        dispatch =>
+            fetch(URL,
+            {
+                method: "DELETE",
+                headers:
+                {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(data =>
+                    {
+                        dispatch(
+                            {
+                                type: "FAVORITE_DELETED",
+                                payload: areaData
+                            }
+                        )
+                    }
+                )
+                .catch(err => console.log(err.message))
+    )
 }

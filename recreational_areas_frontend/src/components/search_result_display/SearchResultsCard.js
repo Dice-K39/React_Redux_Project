@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 
-import { saveFavorites } from "../../redux/actions/SaveFavorites";
+import { saveFavorites } from "../../redux/actions/Favorites";
 
 const SearchResultsCard = (props) => 
 {

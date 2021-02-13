@@ -15,6 +15,16 @@ export const favoritesReducer = (state = initialState, action) =>
                 }
             )
         }
+        case "FAVORITE_DELETED":
+        {
+            const newFavoritesArray = state.favorites.filter(area => area.id !== action.payload.id)
+
+            return (
+                {
+                    favorites: [...newFavoritesArray]
+                }
+            )
+        }
         default:
         {
             return state;

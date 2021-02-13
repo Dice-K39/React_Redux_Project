@@ -1,11 +1,11 @@
-const URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3000";
 
 export const userSignUp = (user, history) => 
 {
     return (
         dispatch =>
         {
-            fetch(URL + "/users",
+            fetch(BASE_URL + "/users",
             {
                 method: "POST",
                 headers:
@@ -46,7 +46,7 @@ export const userLogIn = (user, history) =>
 {
     return dispatch =>
     {
-        fetch(URL + "/sessions",
+        fetch(BASE_URL + "/sessions",
         {
             method: "POST",
             headers:
@@ -79,7 +79,7 @@ export const userLogOut = (history) =>
 {
     return dispatch =>
     {
-        fetch(URL + "/logout",
+        fetch(BASE_URL + "/logout",
         {
             method: "DELETE"
         })
