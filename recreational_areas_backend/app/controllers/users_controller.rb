@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             render json: 
             { 
                 status: 500, 
-                message: "Account was not created." 
+                message: "Error: Account was not created." 
             }
         end
     end

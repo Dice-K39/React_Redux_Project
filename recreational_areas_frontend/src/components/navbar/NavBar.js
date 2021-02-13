@@ -18,6 +18,10 @@ const NavBar = (props) =>
     return (
         <div>
             <nav className="navbar is-fixed-top is-warning">
+                <nav className="error-message is-flex navbar-start" style={{ color:"red" }}>
+                    {props.errorMessage}
+                </nav>
+
                 <nav className="signup-login-button is-flex navbar-end">
                     {
                         (props.isLoggedIn) ?
@@ -44,7 +48,8 @@ const mapStateToProps = state =>
 {
     return (
         {
-            isLoggedIn: state.auth.loggedIn
+            isLoggedIn: state.auth.loggedIn,
+            errorMessage: state.auth.message
         }
     )
 }

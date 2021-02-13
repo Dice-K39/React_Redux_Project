@@ -21,7 +21,7 @@ export const authReducer = (state = initialState, action) =>
             );
         }
         case "AUTH_FAIL":
-        {debugger
+        {
             return (
                 {
                     ...state,
