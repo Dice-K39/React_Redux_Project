@@ -16,7 +16,7 @@ export const favoritesReducer = (state = initialState, action) =>
             );
         }
         case "GET_FAVORITES":
-        {debugger
+        {
             return (
                 {
                     favorites: [...action.payload]

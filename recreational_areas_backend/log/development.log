@@ -5375,3 +5375,29 @@ Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 2
 NoMethodError (undefined method `destroy' for nil:NilClass):
   
 app/controllers/recreational_areas_controller.rb:27:in `destroy'
+Started POST "/users" for ::1 at 2021-02-13 02:53:41 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test2@test.com"], ["password_digest", "$2a$12$iQOmf0L3s.D2EjQaYd.g/uyHhuMuAL70kM.7fkVIDEFCWTPkzSA3W"], ["created_at", "2021-02-13 07:53:41.648088"], ["updated_at", "2021-02-13 07:53:41.648088"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 218ms (Views: 0.3ms | ActiveRecord: 3.5ms | Allocations: 4695)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-13 02:53:41 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
