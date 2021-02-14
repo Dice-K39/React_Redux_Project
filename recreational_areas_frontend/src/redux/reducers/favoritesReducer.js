@@ -23,6 +23,14 @@ export const favoritesReducer = (state = initialState, action) =>
                 }
             );
         }
+        case "CLEAR_FAVORITES":
+        {
+            return (
+                {
+                    favorites: []
+                }
+            )
+        }
         case "FAVORITE_DELETED":
         {
             const newFavoritesArray = state.favorites.filter(area => area.id !== action.payload.id)

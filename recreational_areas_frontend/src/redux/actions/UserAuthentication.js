@@ -99,6 +99,12 @@ export const userLogOut = (history) =>
 
                 dispatch(
                     {
+                        type: "CLEAR_FAVORITES"
+                    }
+                )
+
+                dispatch(
+                    {
                         type: "LOGOUT"
                     }
                 );

@@ -6104,3 +6104,201 @@ Processing by RecreationalAreasController#index as */*
 Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 2127)
 
 
+Started POST "/sessions" for ::1 at 2021-02-14 01:30:41 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 273ms (Views: 1.4ms | ActiveRecord: 0.8ms | Allocations: 6514)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-14 01:30:42 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 59ms (Views: 39.6ms | ActiveRecord: 1.2ms | Allocations: 12697)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-14 01:30:45 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started POST "/users" for ::1 at 2021-02-14 01:39:41 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@test.com"], ["password_digest", "$2a$12$G3GbgslkERHMLoHyDmspa..jhJnahB9Ou8WtXTvTgA4Uu4wqWxZUa"], ["created_at", "2021-02-14 06:39:41.461398"], ["updated_at", "2021-02-14 06:39:41.461398"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 254ms (Views: 1.6ms | ActiveRecord: 2.1ms | Allocations: 9033)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-14 01:39:41 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 31ms (Views: 8.6ms | ActiveRecord: 0.9ms | Allocations: 5031)
+
+
+Started GET "/search?keyword=&activity=camping&state=GA" for ::1 at 2021-02-14 01:40:14 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 577ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 26201)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-14 01:40:32 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Wildcat Creek Campground #2 Upper", "facility_description"=>"<p><strong>Wildcat Creek Campgrounds are opened to tent camping only. No RV, No Campers, and No Trailers allowed. Passenger cars and trucks only no towing on this road. Size and length restrictions applied.</strong></p><p>Although the winding road leading to the campground is not RV friendly, the payoff of landing a night in this environment is pure delight. These developed campgrounds are buried deep in the North Georgia Mountains west of Lake Burton and along the headwaters of Wildcat Creek. The creek, seasonally stocked with rainbow trout, runs directly adjacent to the campsites and provides for an astounding setting, so be prepared to capture nature at its best, and bring your camera. On clear nights the stars appear to be just an arm’s reach away! <br/> </p>", "facility_id"=>"10070265", "facility_directions"=>"<p><strong> Physical Address:</strong> 2740 West Wildcat Rd., Clayton, GA</p>", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Wildcat Creek Campground #2 Upper"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Wildcat Creek Campground #2 Upper"], ["facility_description", "<p><strong>Wildcat Creek Campgrounds are opened to tent camping only. No RV, No Campers, and No Trailers allowed. Passenger cars and trucks only no towing on this road. Size and length restrictions applied.</strong></p><p>Although the winding road leading to the campground is not RV friendly, the payoff of landing a night in this environment is pure delight. These developed campgrounds are buried deep in the North Georgia Mountains west of Lake Burton and along the headwaters of Wildcat Creek. The creek, seasonally stocked with rainbow trout, runs directly adjacent to the campsites and provides for an astounding setting, so be prepared to capture nature at its best, and bring your camera. On clear nights the stars appear to be just an arm’s reach away! <br/> </p>"], ["facility_id", "10070265"], ["facility_directions", "<p><strong> Physical Address:</strong> 2740 West Wildcat Rd., Clayton, GA</p>"], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-14 06:40:32.488125"], ["updated_at", "2021-02-14 06:40:32.488125"]]
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 11283)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-14 01:40:40 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Leon E. Williams - Holiday Marina", "facility_description"=>"This recreation area is part of <a href=http://www.recreation.gov/recreationalAreaDetails.do?contractCode=NRSO&recAreaId=440&agencyCode=130>Allatoona Lake</a>", "facility_id"=>"231774", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Leon E. Williams - Holiday Marina"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Leon E. Williams - Holiday Marina"], ["facility_description", "This recreation area is part of <a href=http://www.recreation.gov/recreationalAreaDetails.do?contractCode=NRSO&recAreaId=440&agencyCode=130>Allatoona Lake</a>"], ["facility_id", "231774"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-14 06:40:40.574848"], ["updated_at", "2021-02-14 06:40:40.574848"]]
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 4141)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-14 01:40:42 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"PS Marina 3 - Allatoona Landing", "facility_description"=>"This recreation area is part of <a href=http://www.recreation.gov/recreationalAreaDetails.do?contractCode=NRSO&recAreaId=440&agencyCode=130>Allatoona Lake</a>", "facility_id"=>"231775", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "PS Marina 3 - Allatoona Landing"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "PS Marina 3 - Allatoona Landing"], ["facility_description", "This recreation area is part of <a href=http://www.recreation.gov/recreationalAreaDetails.do?contractCode=NRSO&recAreaId=440&agencyCode=130>Allatoona Lake</a>"], ["facility_id", "231775"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-14 06:40:42.534305"], ["updated_at", "2021-02-14 06:40:42.534305"]]
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+Completed 200 OK in 29ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 4143)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-14 01:40:43 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"AMITY RECREATION AREA", "facility_description"=>"<h2>Overview</h2>\nAmity Recreation Area is one of the most popular parks on J. Strom Thurmond Lake. The large, 70,000-acre lake and its 1,000 miles of shoreline provide excellent boating, water skiing, swimming, fishing, hiking and picnicking.<h2>Recreation</h2>\nThurmond Lake provides some of the best fishing, hunting and water sports in the southeastern United States. \n<br /><br />\nAnglers will find largemouth bass, bream, crappie, catfish and striped bass. The large lake offers endless boating, waterskiing, jet skiing, canoeing and swimming opportunities. Amity Recreation Area provides a boat ramp and swimming area.<h2>Facilities</h2>\nThis facility is a wooded day-use area on the lake shore. There are three reservable group picnic shelters that can each accommodate up to 92 guests. A boat ramp, fishing pier, swimming area, ball field and playground provide additional recreation opportunities.<h2>Natural Features</h2>\nHot, humid summers and mild, pleasant winters characterize this wooded area. A mixed pine and hardwood forest covers the site, providing summer shade and fall color. \n<br /><br />\nWildlife is abundant around the lake. Visitors might spot bald eagles, migratory waterfowl, osprey, wild turkeys and white-tailed deer.\n<h2>Nearby Attractions</h2>\nAugusta, Georgia, about 20 miles away, offers museums, art galleries, zoos, restaurants and shopping areas. The Augusta National Golf Club hosts the Masters Golf Tournament annually the first week of April.", "facility_id"=>"232514", "facility_directions"=>"From Thomson, Georgia, take U.S. Highway 78 west for 6 miles. Turn right on State Route 43 and continue for about 7.5 miles. The park is on the right (look for signs). The park is located on the McDuffie/Lincoln County line.", "facility_email"=>"", "facility_phone"=>"800-533-3478"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "AMITY RECREATION AREA"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "AMITY RECREATION AREA"], ["facility_description", "<h2>Overview</h2>\nAmity Recreation Area is one of the most popular parks on J. Strom Thurmond Lake. The large, 70,000-acre lake and its 1,000 miles of shoreline provide excellent boating, water skiing, swimming, fishing, hiking and picnicking.<h2>Recreation</h2>\nThurmond Lake provides some of the best fishing, hunting and water sports in the southeastern United States. \n<br /><br />\nAnglers will find largemouth bass, bream, crappie, catfish and striped bass. The large lake offers endless boating, waterskiing, jet skiing, canoeing and swimming opportunities. Amity Recreation Area provides a boat ramp and swimming area.<h2>Facilities</h2>\nThis facility is a wooded day-use area on the lake shore. There are three reservable group picnic shelters that can each accommodate up to 92 guests. A boat ramp, fishing pier, swimming area, ball field and playground provide additional recreation opportunities.<h2>Natural Features</h2>\nHot, humid summers and mild, pleasant winters characterize this wooded area. A mixed pine and hardwood forest covers the site, providing summer shade and fall color. \n<br /><br />\nWildlife is abundant around the lake. Visitors might spot bald eagles, migratory waterfowl, osprey, wild turkeys and white-tailed deer.\n<h2>Nearby Attractions</h2>\nAugusta, Georgia, about 20 miles away, offers museums, art galleries, zoos, restaurants and shopping areas. The Augusta National Golf Club hosts the Masters Golf Tournament annually the first week of April."], ["facility_id", "232514"], ["facility_directions", "From Thomson, Georgia, take U.S. Highway 78 west for 6 miles. Turn right on State Route 43 and continue for about 7.5 miles. The park is on the right (look for signs). The park is located on the McDuffie/Lincoln County line."], ["facility_email", ""], ["facility_phone", "800-533-3478"], ["user_id", 1], ["created_at", "2021-02-14 06:40:43.911116"], ["updated_at", "2021-02-14 06:40:43.911116"]]
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:16:in `create'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 4143)
+
+
+Started DELETE "/users/1/recreational_areas/3" for ::1 at 2021-02-14 01:40:51 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"3", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:25:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.7ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:27:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 3716)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-14 01:41:00 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 207)
+
+
+Started POST "/users" for ::1 at 2021-02-14 01:41:18 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test2@test.com"], ["password_digest", "$2a$12$x6YpAPVWxro3r/o0gW0tmexKi03vztsOFd7d51uJyvCKHVfLgCWDC"], ["created_at", "2021-02-14 06:41:18.901559"], ["updated_at", "2021-02-14 06:41:18.901559"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 258ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4494)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-14 01:41:18 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-14 01:41:23 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-14 01:41:29 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 261ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-14 01:41:29 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:39:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 2203)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-14 01:42:37 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
