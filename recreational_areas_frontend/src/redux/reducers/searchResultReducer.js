@@ -12,12 +12,18 @@ export const searchResultReducer = (state = initialState, action) =>
             return {
                 ...state,
                 results: action.payload.results
-            }
+            };
         }
-
+        case "CLEAR_SEARCH":
+        {
+            return {
+                ...state,
+                results: {}
+            };
+        }
         default:
         {
-            return state
+            return state;
         }
     };
 };

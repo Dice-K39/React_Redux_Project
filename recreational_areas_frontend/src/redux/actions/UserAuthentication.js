@@ -92,9 +92,16 @@ export const userLogOut = (history) =>
             .then(data =>
             {
                 dispatch(
-                {
-                    type: "LOGOUT"
-                });
+                    {
+                        type: "CLEAR_SEARCH"
+                    }
+                )
+
+                dispatch(
+                    {
+                        type: "LOGOUT"
+                    }
+                );
 
                 history.push("/");
             });

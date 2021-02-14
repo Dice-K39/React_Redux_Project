@@ -1,6 +1,6 @@
 # Recreational Area Finder
 
-This app helps users find areas in the United States where they can partake in recreational activities ranging from boating to camping. It is made out of React/Redux client-side and Ruby on Rails server-side using HTTP to communicate between client and server. The data for the app comes from a government owned external API from [Recreation.gov](ridb.recreation.gov). To get data from the external API, the user will require an API key from the website. The application process for the key is straight forward after registering for an account on the website. After acquiring the API key, set it inside the .env file on the server-side and everything will be set (will have to create a .env file in the main directory of the backend folder).
+This app helps users find areas in the United States where they can partake in recreational activities such as boating, fishing, and camping. It is made out of React/Redux client-side and Ruby on Rails server-side using HTTP to communicate between client and server. The data for the app comes from a government owned external API from [Recreation.gov](ridb.recreation.gov). To get data from the external API, the user will require an API key from the website. The application process for the key is straight forward after registering for an account on the website. After acquiring the API key, set it inside the .env file on the server-side and everything will be set (will have to create a .env file in the main directory of the backend folder).
 
 ## Installation and Start Up
 
