@@ -12,6 +12,8 @@ This app helps users find areas in the United States where they can partake in r
 6. Run `npm install`.
 7. Start the app by typing `npm start`.
 
+**Note: Both client and server-side will start on port 3000. Change the client-side port to a different port number by creating a .env in the main directory of the frontend folder and insert `PORT=a_Number` in the file replacing a_Number with a 4 digit number.**
+
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/Dice-K39/React_Redux_Project).
