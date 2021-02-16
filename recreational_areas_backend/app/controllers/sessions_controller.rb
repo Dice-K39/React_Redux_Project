@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:user][:email])
-byebug
+
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             
@@ -12,7 +12,6 @@ byebug
                 user: user 
             }
         else
-byebug
             render json:
             { 
                 status: 401,

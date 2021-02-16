@@ -9,13 +9,7 @@ class IndexContainer extends Component
     {
         return (
             <div>
-                {this.props.isLoggedIn ? 
-                    (
-                        <UserHomeContainer />
-                    ) 
-                    : 
-                    ""
-                }
+                {this.props.isLoggedIn ? <UserHomeContainer /> : ""}
             </div>
         )
     }

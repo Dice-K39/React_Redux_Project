@@ -9,17 +9,30 @@ export const searchQuery = (queries) =>
             fetch(url)
                 .then(res => res.json())
                 .then(data => 
-                    {
-                        dispatch(
+                {
+                    dispatch(
+                        {
+                            type: "SEARCH_SUCCESS",
+                            payload:
                             {
-                                type: "SEARCH_SUCCESS",
-                                payload:
-                                {
-                                    results: data.RECDATA
-                                }
+                                results: data.RECDATA
                             }
-                        )
-                    })
+                        }
+                    )
+                });
         }
-    )
+    );
+}
+
+export const clearSearch = () =>
+{
+    return (dispatch =>
+        {
+            dispatch(
+                {
+                    type: "CLEAR_SEARCH"
+                }
+            )
+        }
+    );
 }

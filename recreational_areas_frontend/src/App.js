@@ -12,11 +12,11 @@ function App() {
       <Router>
         <NavBar />
          <Switch>
-          <Route exact path="/" component={IndexContainer} />
           <Route path="/signup" component={UserSignUp} />
           <Route path="/login" component={UserLogIn} />
           {/* <Route path="/about" component={} />
           <Route path="/contact" compoent={} /> */}
+          <Route path="/" component={IndexContainer} />
          </Switch>
       </Router>
     </div>
