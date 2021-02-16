@@ -10,7 +10,7 @@ const NavBar = (props) =>
 
     const routeChange = (event) =>
     {
-        const path = event.target.name;
+        const path = event.target.value;
         
         history.push(path);
     }
@@ -27,13 +27,13 @@ const NavBar = (props) =>
                         (props.isLoggedIn) ?
                         (
                             <div>
-                                <button className="button is-danger" name="/logout" onClick={() => dispatch(userLogOut(history))}>Log Out</button>
+                                <button className="button is-danger" value="/logout" onClick={() => dispatch(userLogOut(history))}>Log Out</button>
                             </div>
                         ) :
                         (
                             <div>
-                                <button className="button is-primary" name="/login" onClick={routeChange}>Log In</button>
-                                <button className="button is-info" name="/signup" onClick={routeChange}>Sign Up</button>
+                                <button className="button is-primary" value="/login" onClick={routeChange}>Log In</button>
+                                <button className="button is-info" value="/signup" onClick={routeChange}>Sign Up</button>
                             </div>
                         )
                     }
