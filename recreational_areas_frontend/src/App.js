@@ -15,6 +15,8 @@ function App() {
           <Route exact path="/" component={IndexContainer} />
           <Route path="/signup" component={UserSignUp} />
           <Route path="/login" component={UserLogIn} />
+          {/* <Route path="/about" component={} />
+          <Route path="/contact" compoent={} /> */}
          </Switch>
       </Router>
     </div>

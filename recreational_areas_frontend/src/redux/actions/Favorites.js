@@ -31,15 +31,27 @@ export const saveFavorites = (areaData, currentUser) =>
             .then(res => res.json())
             .then(data => 
             {
-                dispatch(
-                    {
-                        type: "FAVORITE_SAVED",
-                        payload:
+                if (data.status >= 400)
+                {
+                    dispatch(
                         {
-                            favorite: data
+                            type: "FAVORITE_NOT_SAVED",
+                            payload: data
                         }
-                    }
-                )
+                    )
+                }
+                else
+                {    
+                    dispatch(
+                        {
+                            type: "FAVORITE_SAVED",
+                            payload:
+                            {
+                                favorite: data
+                            }
+                        }
+                    )
+                }
             })
         }
     );

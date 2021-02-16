@@ -49,7 +49,7 @@ const mapStateToProps = state =>
     return (
         {
             isLoggedIn: state.auth.loggedIn,
-            errorMessage: state.auth.message
+            errorMessage: state.auth.message || state.favorites.message
         }
     )
 }

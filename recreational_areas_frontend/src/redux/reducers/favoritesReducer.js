@@ -1,6 +1,7 @@
 const initialState =
 {
-    favorites: []
+    favorites: [],
+    message: ""
 }
 
 export const favoritesReducer = (state = initialState, action) =>
@@ -14,6 +15,15 @@ export const favoritesReducer = (state = initialState, action) =>
                     favorites: [...state.favorites, action.payload.favorite]
                 }
             );
+        }
+        case "FAVORITE_NOT_SAVED":
+        {debugger
+            return (
+                {
+                    favorites: [...state],
+                    message: action.payload.message
+                }
+            )
         }
         case "GET_FAVORITES":
         {

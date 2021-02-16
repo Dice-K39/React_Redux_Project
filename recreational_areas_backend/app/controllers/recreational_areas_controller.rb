@@ -11,13 +11,16 @@ class RecreationalAreasController < ApplicationController
         rec_area = @user.recreational_areas.new(rec_area_params)
 
         if (RecreationalArea.where(facility_name: rec_area.facility_name, user_id: @user).exists?)
-            render json: rec_area.errors, status: :conflict
+            render json:
+            {
+                status: 400,
+                message: "Unable to save to favorites."
+            }
         else
-            if (rec_area.save)
-                render json: rec_area, except: [:created_at, :updated_at]
-            else
-                render json: rec_area.errors, status: :conflict
-            end
+            rec_area.save
+            
+            render json: rec_area, except: [:created_at, :updated_at]
+            
         end
     end
 
