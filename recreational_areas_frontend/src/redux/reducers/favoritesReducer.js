@@ -12,7 +12,8 @@ export const favoritesReducer = (state = initialState, action) =>
         {
             return (
                 {
-                    favorites: [...state.favorites, action.payload.favorite]
+                    favorites: [...state.favorites, action.payload.favorite],
+                    message: ""
                 }
             );
         }
@@ -29,7 +30,8 @@ export const favoritesReducer = (state = initialState, action) =>
         {
             return (
                 {
-                    favorites: [...action.payload]
+                    favorites: [...action.payload],
+                    message: ""
                 }
             );
         }
@@ -37,7 +39,8 @@ export const favoritesReducer = (state = initialState, action) =>
         {
             return (
                 {
-                    favorites: []
+                    favorites: [],
+                    message: ""
                 }
             )
         }
@@ -47,7 +50,8 @@ export const favoritesReducer = (state = initialState, action) =>
 
             return (
                 {
-                    favorites: [...newFavoritesArray]
+                    favorites: [...newFavoritesArray],
+                    message: ""
                 }
             );
         }
