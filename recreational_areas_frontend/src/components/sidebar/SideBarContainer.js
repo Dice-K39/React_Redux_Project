@@ -1,7 +1,7 @@
 import React from "react";
 
-import SearchBar from "../components/sidebar/SearchBar";
-import FavoritesBar from "../components/sidebar/FavoritesBar";
+import SearchBar from "./SearchBar";
+import FavoritesBar from "./FavoritesBar";
 import "./SideBarContainer.css";
 
 const SideBarContainer = () => 

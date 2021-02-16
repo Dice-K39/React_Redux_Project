@@ -1,7 +1,7 @@
 import React from "react";
 
-import SideBarContainer from "./SideBarContainer";
-import SearchResults from "../components/search_result_display/SearchResults";
+import SideBarContainer from "../sidebar/SideBarContainer";
+import SearchResults from "../search_result_display/SearchResults";
 import "./UserHomeContainer.css";
 
 const UserHomeContainer = () => 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import UserHomeContainer from './UserHomeContainer'
+import UserHomeContainer from "./user/UserHomeContainer";
 
 class IndexContainer extends Component 
 {
