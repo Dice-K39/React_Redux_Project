@@ -8,7 +8,7 @@ export const favoritesReducer = (state = initialState, action) =>
 {
     switch (action.type)
     {
-        case "FAVORITE_SAVED":
+        case "SAVE_FAVORITE":
         {
             return (
                 {
@@ -17,7 +17,7 @@ export const favoritesReducer = (state = initialState, action) =>
                 }
             );
         }
-        case "FAVORITE_NOT_SAVED":
+        case "DO_NOT_SAVE_FAVORITE":
         {
             return (
                 {
@@ -44,7 +44,7 @@ export const favoritesReducer = (state = initialState, action) =>
                 }
             )
         }
-        case "FAVORITE_DELETED":
+        case "DELETE_FAVORITE":
         {
             const newFavoritesArray = state.favorites.filter(area => area.id !== action.payload.id)
 

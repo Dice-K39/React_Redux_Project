@@ -35,7 +35,7 @@ export const saveFavorites = (areaData, currentUser) =>
                 {
                     dispatch(
                         {
-                            type: "FAVORITE_NOT_SAVED",
+                            type: "DO_NOT_SAVE_FAVORITE",
                             payload: data
                         }
                     )
@@ -44,7 +44,7 @@ export const saveFavorites = (areaData, currentUser) =>
                 {    
                     dispatch(
                         {
-                            type: "FAVORITE_SAVED",
+                            type: "SAVE_FAVORITE",
                             payload:
                             {
                                 favorite: data
@@ -97,7 +97,7 @@ export const deleteFavorites = (areaData, currentUser) =>
                     {
                         dispatch(
                             {
-                                type: "FAVORITE_DELETED",
+                                type: "DELETE_FAVORITE",
                                 payload: areaData
                             }
                         )
