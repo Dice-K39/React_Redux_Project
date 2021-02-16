@@ -18,7 +18,7 @@ export const userSignUp = (user, history) =>
                 .then(res => res.json())
                 .then(data =>
                     {
-                        if (data.status === 500)
+                        if (data.status >= 400)
                         {
                             dispatch(
                                 {
@@ -63,6 +63,17 @@ export const userLogIn = (user, history) =>
         })
             .then(res => res.json())
             .then(data =>
+            {
+                if (data.status >= 400)
+                {
+                    dispatch(
+                        {
+                            type: "AUTH_FAIL",
+                            payload: data
+                        }
+                    )
+                }
+                else
                 {
                     dispatch(
                         {
@@ -76,7 +87,8 @@ export const userLogIn = (user, history) =>
                     );
 
                     history.push("/");
-                })
+                }
+            })
     };
 }
 

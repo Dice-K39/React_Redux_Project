@@ -17,10 +17,10 @@ export const favoritesReducer = (state = initialState, action) =>
             );
         }
         case "FAVORITE_NOT_SAVED":
-        {debugger
+        {
             return (
                 {
-                    favorites: [...state],
+                    favorites: [...state.favorites],
                     message: action.payload.message
                 }
             )
