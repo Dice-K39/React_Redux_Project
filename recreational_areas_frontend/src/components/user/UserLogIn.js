@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { userLogIn } from "../../redux/actions/UserAuthentication";
 
 class UserLogIn extends Component 
-{    state =
+{   
+    state =
     {
         email: "",
         password: "",

@@ -8497,3 +8497,20 @@ Processing by SessionsController#logout as */*
 Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 202)
 
 
+Started POST "/sessions" for ::1 at 2021-02-15 23:38:24 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"unice@unice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "unice@unice.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 772)
+
+
+Started POST "/users" for ::1 at 2021-02-15 23:42:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 201ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1574)
+
+

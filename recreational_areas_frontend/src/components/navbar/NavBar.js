@@ -18,7 +18,7 @@ const NavBar = (props) =>
     return (
         <div>
             <nav className="navbar is-fixed-top is-warning">
-                <nav className="error-message is-flex navbar-start" style={{ color:"red" }}>
+                <nav className="error-message is-flex navbar-start pt-3" style={{ color:"red" }} >
                     {props.errorMessage}
                 </nav>
 
