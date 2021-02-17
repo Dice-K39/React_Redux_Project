@@ -37,7 +37,7 @@
   }
 }
 
-.sign-up {
+.sign-up, .log-in {
   display: flex;
   height: 90vh;
   align-items: center;

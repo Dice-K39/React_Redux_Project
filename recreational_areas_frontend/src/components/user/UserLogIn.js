@@ -31,7 +31,7 @@ class UserLogIn extends Component
     render() 
     {
         return (
-            <div className="sign-up">
+            <div className="log-in">
                 <form onSubmit={this.handleOnSubmit}>
                     <label className="label">Email:</label>
                     <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleOnChange} />
