@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import UserHomeContainer from "./user/UserHomeContainer";
 import Home from "./Home";
 
-class IndexContainer extends Component 
+class HomeContainer extends Component 
 {
     render() 
     {
@@ -13,7 +13,7 @@ class IndexContainer extends Component
                 {this.props.isLoggedIn ? 
                     <UserHomeContainer /> 
                     : 
-                    null
+                    <Home />
                 }
             </div>
         )
@@ -29,4 +29,4 @@ const mapStateToProps = state =>
     )
 }
 
-export default connect(mapStateToProps)(IndexContainer);
+export default connect(mapStateToProps)(HomeContainer);
