@@ -18,22 +18,27 @@ const NavBar = (props) =>
     return (
         <div>
             <nav className="navbar is-fixed-top is-warning">
-                <nav className="error-message is-flex navbar-start pt-3" style={{ color:"red" }} >
+                <nav className="navbar-buttons is-flex navbar-start pt-1">
+                    <button className="button is-primary" style={{ marginLeft: "10px", marginRight: "10px" }} name="/" onClick={routeChange}>Home</button>
+                    <button className="button is-info" style={{ marginLeft: "10px", marginRight: "10px" }} name="/about" onClick={routeChange}>About</button>
+                    <button className="button is-success" style={{ marginLeft: "10px", marginRight: "10px" }} name="/contact" onClick={routeChange}>Contact</button>
+                </nav>
+                <nav className="error-message is-flex navbar-start pt-3" style={{ color:"red" }}>
                     {props.errorMessage}
                 </nav>
 
-                <nav className="signup-login-button is-flex navbar-end">
+                <nav className="signup-login-button is-flex navbar-end pt-1">
                     {
                         (props.isLoggedIn) ?
                         (
-                            <div>
+                            <div className="navbar-logout is-flex">
                                 <button className="button is-danger" name="/logout" onClick={() => dispatch(userLogOut(history))}>Log Out</button>
                             </div>
                         ) :
                         (
-                            <div>
-                                <button className="button is-primary" name="/login" onClick={routeChange}>Log In</button>
-                                <button className="button is-info" name="/signup" onClick={routeChange}>Sign Up</button>
+                            <div className="navbar-auth is-flex">
+                                <button className="button is-primary" style={{ marginLeft: "10px", marginRight: "10px" }} name="/login" onClick={routeChange}>Log In</button>
+                                <button className="button is-info" style={{ marginLeft: "10px", marginRight: "10px" }} name="/signup" onClick={routeChange}>Sign Up</button>
                             </div>
                         )
                     }

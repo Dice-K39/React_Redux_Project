@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import UserHomeContainer from "./user/UserHomeContainer";
+import Home from "./Home";
 
 class IndexContainer extends Component 
 {
@@ -12,7 +13,8 @@ class IndexContainer extends Component
                 {this.props.isLoggedIn ? 
                     <UserHomeContainer /> 
                     : 
-                    ""}
+                    <Home />
+                }
             </div>
         )
     }
