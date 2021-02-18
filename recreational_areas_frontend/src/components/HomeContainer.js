@@ -9,13 +9,13 @@ class HomeContainer extends Component
     render() 
     {
         return (
-            <div>
+            <>
                 {this.props.isLoggedIn ? 
                     <UserHomeContainer /> 
                     : 
                     <Home />
                 }
-            </div>
+            </>
         )
     }
 }
