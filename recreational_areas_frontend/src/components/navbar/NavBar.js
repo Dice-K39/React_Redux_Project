@@ -11,7 +11,7 @@ const NavBar = (props) =>
     const routeChange = (event) =>
     {
         const path = event.target.name;
-        
+
         history.push(path);
     }
   
