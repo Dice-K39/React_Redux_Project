@@ -1,15 +1,10 @@
 import React from "react";
-import { connect, useDispatch } from "react-redux";
-
-import { saveFavorites } from "../../redux/actions/Favorites";
 
 const SearchResultsCard = (props) => 
 {
-    const dispatch = useDispatch();
-
     return (
         <div className="content has-background-light" key={props.id}>
-            <h2>{props.area.FacilityName}<button className="favorite-btn button is-primary" onClick={() => dispatch(saveFavorites(props.area, props.currentUser))}>Favorite</button></h2>
+            <h2>{props.area.FacilityName}<button className="favorite-btn button is-primary" onClick={props.save}>Favorite</button></h2>
 
             {/* cross-site scripting (XSS) danger */}
             <div dangerouslySetInnerHTML={{ __html: props.area.FacilityDescription}}></div>
@@ -17,4 +12,4 @@ const SearchResultsCard = (props) =>
     )
 }
 
-export default connect(null, { saveFavorites })(SearchResultsCard);
+export default SearchResultsCard;

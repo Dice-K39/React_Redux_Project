@@ -1,6 +1,6 @@
 const initialState =
 {
-    results: {}
+    results: []
 };
 
 export const searchResultReducer = (state = initialState, action) =>
@@ -18,7 +18,7 @@ export const searchResultReducer = (state = initialState, action) =>
         {
             return {
                 ...state,
-                results: {}
+                results: []
             };
         }
         default:
