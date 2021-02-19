@@ -14,7 +14,13 @@ class SearchResults extends Component
                     (this.props.searchResults.length !== 0) ? 
                     (
                         this.props.searchResults.map((area, i) => 
-                            <SearchResultsCard area={area} key={i + 1} id={i + 1} currentUser={this.props.currentUser} save={() => (this.props.saveFavorites(area, this.props.currentUser))} />
+                            <SearchResultsCard 
+                                area={area} 
+                                key={i + 1} 
+                                id={i + 1} 
+                                currentUser={this.props.currentUser} 
+                                save={() => (this.props.saveFavorites(area, this.props.currentUser))} 
+                            />
                         )
                     ) 
                     : 
