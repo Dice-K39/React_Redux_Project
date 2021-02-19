@@ -35,6 +35,29 @@ export const favoritesReducer = (state = initialState, action) =>
                 }
             );
         }
+        case "SORT_FAVORITES":
+        {
+            const sortedFavorites = state.favorites.sort((a, b) =>
+            {
+                if (a.facility_name < b.facility_name)
+                {
+                    return -1;
+                }
+                else if (a.facility_name > b.facility_name)
+                {
+                    return 1;
+                }
+
+                return 0;
+            });
+
+            return (
+                {
+                    favorites: [...sortedFavorites],
+                    message: ""
+                }
+            );
+        }
         case "CLEAR_FAVORITES":
         {
             return (

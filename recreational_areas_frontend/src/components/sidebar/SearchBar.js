@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { searchQuery, clearSearch } from "../../redux/actions/Search";
+import { sortFavorites } from "../../redux/actions/Favorites";
 
 class SearchBar extends Component 
 {
@@ -31,6 +32,8 @@ class SearchBar extends Component
         }
         else if (event.target.id === "reset")
         {
+            event.preventDefault();
+
             this.setState(
                 {
                     keyword: "",
@@ -40,6 +43,12 @@ class SearchBar extends Component
             )
             
             this.props.clearSearch();
+        }
+        else if (event.target.id === "sort")
+        {
+            event.preventDefault();
+
+            this.props.sortFavorites();
         }
     }
 
@@ -127,9 +136,9 @@ class SearchBar extends Component
                     <br />
 
                     <div className="buttons">
-                        <button className="button is-primary" type="submit" id="submit" onClick={this.handleOnClick}>Submit</button>
+                        <button className="button is-primary" id="submit" onClick={this.handleOnClick}>Submit</button>
                         <button className="button is-danger" type="reset" id="reset" onClick={this.handleOnClick}>Reset</button>
-                        {/* <button className="button is-warning" >Sort Favorites</button> */}
+                        <button className="button is-warning" id="sort" onClick={this.handleOnClick}>Sort Favorites</button>
                     </div>
                 </form>
             </div>
@@ -137,4 +146,4 @@ class SearchBar extends Component
     }
 }
 
-export default connect(null, { searchQuery, clearSearch })(SearchBar);
+export default connect(null, { searchQuery, clearSearch, sortFavorites })(SearchBar);

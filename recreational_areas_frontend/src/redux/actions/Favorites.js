@@ -77,6 +77,18 @@ export const getFavorites = currentUser =>
     );
 }
 
+export const sortFavorites = () =>
+{
+    return(
+        dispatch => 
+        dispatch(
+            {
+                type: "SORT_FAVORITES"
+            }
+        )
+    );
+}
+
 export const deleteFavorites = (areaData, currentUser) =>
 {
     const URL = BASE_URL + `/${currentUser.id}/recreational_areas/${areaData.id}`
