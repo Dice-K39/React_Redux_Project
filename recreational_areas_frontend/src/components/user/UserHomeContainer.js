@@ -7,7 +7,7 @@ import "./UserHomeContainer.css";
 const UserHomeContainer = () => 
 {
     return (
-        <div className="columns is-mobile" id="user-home">
+        <div className="columns" id="user-home">
             <SideBarContainer />
             <SearchResults />
         </div>
