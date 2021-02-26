@@ -32,8 +32,6 @@ class SearchBar extends Component
         }
         else if (event.target.id === "reset")
         {
-            event.preventDefault();
-
             this.setState(
                 {
                     keyword: "",

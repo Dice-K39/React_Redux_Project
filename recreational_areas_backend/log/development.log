@@ -14886,3 +14886,107 @@ Processing by SessionsController#logout as */*
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 204)
 
 
+Started POST "/sessions" for ::1 at 2021-02-26 10:41:56 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 944)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 10:41:56 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 10:42:04 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 336ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 22962)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 10:42:40 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 10:43:19 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 10:48:18 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 206ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 10:48:18 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 10:48:19 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 475ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 22963)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=GA" for ::1 at 2021-02-26 10:48:42 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 732ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 22073)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 10:50:29 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 374ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 22968)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 10:50:49 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 207ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 10:50:50 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.3ms | Allocations: 1583)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 10:50:51 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 264ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 23036)
+
+
