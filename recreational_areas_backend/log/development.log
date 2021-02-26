@@ -14990,3 +14990,813 @@ Processing by SearchController#search as */*
 Completed 200 OK in 264ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 23036)
 
 
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 10:53:42 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 348ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 22996)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 10:53:44 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (2.0ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 15:53:44.148707"], ["updated_at", "2021-02-26 15:53:44.148707"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 4137)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 10:53:44 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.3ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 15:53:44.800535"], ["updated_at", "2021-02-26 15:53:44.800535"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 4110)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 10:53:45 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Bastendorff Beach", "facility_description"=>"<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n", "facility_id"=>"261327", "facility_directions"=>"From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left.", "facility_email"=>"blm_or_cb_mail@blm.gov ", "facility_phone"=>"541-756-0100"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Bastendorff Beach"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Bastendorff Beach"], ["facility_description", "<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n"], ["facility_id", "261327"], ["facility_directions", "From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left."], ["facility_email", "blm_or_cb_mail@blm.gov "], ["facility_phone", "541-756-0100"], ["user_id", 1], ["created_at", "2021-02-26 15:53:45.479773"], ["updated_at", "2021-02-26 15:53:45.479773"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 4148)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 12:08:52 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 957)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 12:08:52 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 2215)
+
+
+Started DELETE "/users/1/recreational_areas/115" for ::1 at 2021-02-26 12:08:54 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"115", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 115], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 115]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3570)
+
+
+Started DELETE "/users/1/recreational_areas/116" for ::1 at 2021-02-26 12:08:56 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"116", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 116], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 116]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/117" for ::1 at 2021-02-26 12:09:01 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"117", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 117], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 117]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 3543)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 12:09:10 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 380ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 22997)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:09:12 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:09:12.678932"], ["updated_at", "2021-02-26 17:09:12.678932"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 4124)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:09:40 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1784)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:09:41 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:09:41.798405"], ["updated_at", "2021-02-26 17:09:41.798405"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 4110)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:09:42 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Bastendorff Beach", "facility_description"=>"<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n", "facility_id"=>"261327", "facility_directions"=>"From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left.", "facility_email"=>"blm_or_cb_mail@blm.gov ", "facility_phone"=>"541-756-0100"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Bastendorff Beach"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.5ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Bastendorff Beach"], ["facility_description", "<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n"], ["facility_id", "261327"], ["facility_directions", "From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left."], ["facility_email", "blm_or_cb_mail@blm.gov "], ["facility_phone", "541-756-0100"], ["user_id", 1], ["created_at", "2021-02-26 17:09:42.935691"], ["updated_at", "2021-02-26 17:09:42.935691"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 4148)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:09:45 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Blackwater National Wildlife Refuge Waterfowl Hunt Permits", "facility_description"=>"", "facility_id"=>"5151515", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Blackwater National Wildlife Refuge Waterfowl Hunt Permits"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Blackwater National Wildlife Refuge Waterfowl Hunt Permits"], ["facility_description", ""], ["facility_id", "5151515"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:09:45.586578"], ["updated_at", "2021-02-26 17:09:45.586578"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4108)
+
+
+Started DELETE "/users/1/recreational_areas/120" for ::1 at 2021-02-26 12:09:49 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"120", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 120], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 120]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/121" for ::1 at 2021-02-26 12:09:50 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"121", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 121], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 121]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/118" for ::1 at 2021-02-26 12:09:52 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"118", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 118], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 118]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/119" for ::1 at 2021-02-26 12:09:53 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"119", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 119], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 119]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 3543)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 12:10:18 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 944)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 12:10:43 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 12:37:34 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 205ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 957)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 12:37:34 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1620)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 12:37:36 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 361ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 23060)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:37:37 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:37:37.976091"], ["updated_at", "2021-02-26 17:37:37.976091"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 4121)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:37:38 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:37:38.851612"], ["updated_at", "2021-02-26 17:37:38.851612"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 4112)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:37:39 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Bastendorff Beach", "facility_description"=>"<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n", "facility_id"=>"261327", "facility_directions"=>"From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left.", "facility_email"=>"blm_or_cb_mail@blm.gov ", "facility_phone"=>"541-756-0100"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Bastendorff Beach"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Bastendorff Beach"], ["facility_description", "<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n"], ["facility_id", "261327"], ["facility_directions", "From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left."], ["facility_email", "blm_or_cb_mail@blm.gov "], ["facility_phone", "541-756-0100"], ["user_id", 1], ["created_at", "2021-02-26 17:37:39.625211"], ["updated_at", "2021-02-26 17:37:39.625211"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 4148)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 12:37:42 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Blackwater National Wildlife Refuge Waterfowl Hunt Permits", "facility_description"=>"", "facility_id"=>"5151515", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Blackwater National Wildlife Refuge Waterfowl Hunt Permits"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Blackwater National Wildlife Refuge Waterfowl Hunt Permits"], ["facility_description", ""], ["facility_id", "5151515"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 17:37:42.536620"], ["updated_at", "2021-02-26 17:37:42.536620"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 4111)
+
+
+Started DELETE "/users/1/recreational_areas/124" for ::1 at 2021-02-26 12:37:45 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"124", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 124], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 124]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3569)
+
+
+Started DELETE "/users/1/recreational_areas/125" for ::1 at 2021-02-26 12:37:46 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"125", "recreational_area"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 125], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 125]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/122" for ::1 at 2021-02-26 12:37:47 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"122", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 122], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 122]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/123" for ::1 at 2021-02-26 12:37:48 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"123", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 123], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 123]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 3543)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:27:55 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 233ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 958)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:28:05 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.4ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1620)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:28:14 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:28:15 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 13:28:17 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 401ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 23575)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:28:19 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:28:19.423411"], ["updated_at", "2021-02-26 18:28:19.423411"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 4121)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:28:20 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.5ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:28:20.059274"], ["updated_at", "2021-02-26 18:28:20.059274"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 4110)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:28:20 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Bastendorff Beach", "facility_description"=>"<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n", "facility_id"=>"261327", "facility_directions"=>"From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left.", "facility_email"=>"blm_or_cb_mail@blm.gov ", "facility_phone"=>"541-756-0100"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Bastendorff Beach"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.5ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Bastendorff Beach"], ["facility_description", "<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n"], ["facility_id", "261327"], ["facility_directions", "From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left."], ["facility_email", "blm_or_cb_mail@blm.gov "], ["facility_phone", "541-756-0100"], ["user_id", 1], ["created_at", "2021-02-26 18:28:20.950007"], ["updated_at", "2021-02-26 18:28:20.950007"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 4148)
+
+
+Started DELETE "/users/1/recreational_areas/128" for ::1 at 2021-02-26 13:28:22 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"128", "recreational_area"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 128], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 128]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 3568)
+
+
+Started DELETE "/users/1/recreational_areas/126" for ::1 at 2021-02-26 13:28:23 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"126", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 126]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/127" for ::1 at 2021-02-26 13:28:23 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"127", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 127], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 127]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3543)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:29:17 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 214ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:18 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 13:29:19 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 346ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 23586)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:20 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.5ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:29:20.658562"], ["updated_at", "2021-02-26 18:29:20.658562"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4118)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:21 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.3ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:29:21.243856"], ["updated_at", "2021-02-26 18:29:21.243856"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 4333)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:21 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Bastendorff Beach", "facility_description"=>"<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n", "facility_id"=>"261327", "facility_directions"=>"From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left.", "facility_email"=>"blm_or_cb_mail@blm.gov ", "facility_phone"=>"541-756-0100"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Bastendorff Beach"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.8ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Bastendorff Beach"], ["facility_description", "<h2>Overview:</h2>A short drive from Charleston, Oregon, Bastendorff Beach is one of the most popular beaches on the southern Oregon Coast. A wide stretch of soft sand is the perfect place for a walk, kite flying and other fun on the ocean shore. The beach is bordered by a shore pine forest and a steep headland. The south jetty of Coos Bay borders the beach to the north, and visitors may get a peek-a-boo view of the Cape Arago Lighthouse to the south.  <h4>Know Before You Go:</h4><ul><li>Bastendorff Beach is open from DAWN TO DUSK year round. <li>Open fires are prohibited during fire season (July 1 - Sept. 30) including campfires, charcoal fires, cooking fires, and warming fires. Portable cooking stoves using liquefied or bottled fuels are allowed.</li><li>Universal Access Restrooms Two vault restrooms are located in the middle and south parking areas. There is no running water at the beach. </li><li>Street legal OHVs are ALLOWED on designated routes on the foredune. Vehicles must display a safety flag and an <a href=\"https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx\"> Oregon OHV sticker</a></li></ul><h4>Point of Interest:</h4>Play it safe near the ocean. Changing tides, driftwood, and loose sand can all be treacherous. Beware of sneaker waves and never turn your back to the ocean!\n"], ["facility_id", "261327"], ["facility_directions", "From Charleston, Oregon, travel west on Cape Arago Highway for 1.5 miles. Turn right onto Bastendorff Beach Road. The beach is 0.5 miles on the left."], ["facility_email", "blm_or_cb_mail@blm.gov "], ["facility_phone", "541-756-0100"], ["user_id", 1], ["created_at", "2021-02-26 18:29:21.981410"], ["updated_at", "2021-02-26 18:29:21.981410"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 4148)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=GA" for ::1 at 2021-02-26 13:29:30 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 255ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 21972)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:32 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"BOLDING MILL", "facility_description"=>"<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system.", "facility_id"=>"232531", "facility_directions"=>"From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground.", "facility_email"=>"Brent.J.Cossette@sam.usace.army.mil", "facility_phone"=>"770-534-6960"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "BOLDING MILL"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "BOLDING MILL"], ["facility_description", "<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system."], ["facility_id", "232531"], ["facility_directions", "From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground."], ["facility_email", "Brent.J.Cossette@sam.usace.army.mil"], ["facility_phone", "770-534-6960"], ["user_id", 1], ["created_at", "2021-02-26 18:29:32.842523"], ["updated_at", "2021-02-26 18:29:32.842523"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 4149)
+
+
+Started DELETE "/users/1/recreational_areas/131" for ::1 at 2021-02-26 13:29:35 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"131", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 131], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 131]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/129" for ::1 at 2021-02-26 13:29:36 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"129", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 129], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 129]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/130" for ::1 at 2021-02-26 13:29:37 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"130", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 130]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 3543)
+
+
+Started DELETE "/users/1/recreational_areas/132" for ::1 at 2021-02-26 13:29:39 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"132", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 132], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 132]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 3543)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:42 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:44 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"BOLDING MILL", "facility_description"=>"<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system.", "facility_id"=>"232531", "facility_directions"=>"From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground.", "facility_email"=>"Brent.J.Cossette@sam.usace.army.mil", "facility_phone"=>"770-534-6960"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "BOLDING MILL"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "BOLDING MILL"], ["facility_description", "<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system."], ["facility_id", "232531"], ["facility_directions", "From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground."], ["facility_email", "Brent.J.Cossette@sam.usace.army.mil"], ["facility_phone", "770-534-6960"], ["user_id", 1], ["created_at", "2021-02-26 18:29:44.793139"], ["updated_at", "2021-02-26 18:29:44.793139"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 4149)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:48 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1802)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:29:56 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1802)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:30:01 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1802)
+
+
+Started DELETE "/users/1/recreational_areas/133" for ::1 at 2021-02-26 13:30:08 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"133", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 133]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 3543)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 13:30:10 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+

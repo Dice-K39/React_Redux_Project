@@ -1,6 +1,6 @@
 import{ createStore, applyMiddleware, compose, combineReducers } from "redux";
 /*
-    createStore - creates a Redux store that holds the complete state tree of an app.
+    createStore - creates a Redux store that holds the complete state tree of an app. (reducer, preloadedState, enhancer)
     applyMiddleware - applies middleware, which is the suggested method of extending Redux with custom functionality.
     compose - able to apply several store enhancers.
     combineReducers - helper function that turns an object whose values are different reducing functions into a single reducing function that can be passed to createStore.

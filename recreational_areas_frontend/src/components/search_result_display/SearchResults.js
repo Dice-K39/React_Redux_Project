@@ -4,31 +4,28 @@ import { connect } from "react-redux";
 import SearchResultsCard from "./SearchResultsCard";
 import { saveFavorites } from "../../redux/actions/Favorites";
 
-class SearchResults extends Component 
+const SearchResults = (props) => 
 {
-    render() 
-    {
-        return (
-            <div className="column is-offset-one-quarter" id="display-container">
-                {
-                    (this.props.searchResults.length !== 0) ? 
-                    (
-                        this.props.searchResults.map((area, i) => 
-                            <SearchResultsCard 
-                                area={area} 
-                                key={i + 1} 
-                                id={i + 1} 
-                                currentUser={this.props.currentUser} 
-                                save={() => (this.props.saveFavorites(area, this.props.currentUser))} 
-                            />
-                        )
-                    ) 
-                    : 
-                    ""
-                }
-            </div>
-        )
-    }
+    return (
+        <div className="column is-offset-one-quarter" id="display-container">
+            {
+                (props.searchResults.length !== 0) ? 
+                (
+                    props.searchResults.map((area, i) => 
+                        <SearchResultsCard 
+                            area={area} 
+                            key={i + 1} 
+                            id={i + 1} 
+                            currentUser={props.currentUser} 
+                            save={() => (props.saveFavorites(area, props.currentUser))} 
+                        />
+                    )
+                ) 
+                : 
+                ""
+            }
+        </div>
+    )
 }
 
 const mapStateToProps = state =>
