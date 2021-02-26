@@ -7,6 +7,7 @@ import UserSignUp from "./components/user/UserSignUp";
 import UserLogIn from "./components/user/UserLogIn";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import InvalidPath from "./components/InvalidPath";
 import background from "./images/mountain.jpeg";
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
           <Route path="/login" component={UserLogIn} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-          <Route path="/" component={HomeContainer} />
+          <Route exact path="/" component={HomeContainer} />
+          <Route>
+            <InvalidPath />
+          </Route>
          </Switch>
       </Router>
     </div>
