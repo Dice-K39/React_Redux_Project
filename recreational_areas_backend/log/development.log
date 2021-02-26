@@ -15917,3 +15917,666 @@ Processing by SessionsController#logout as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
 
 
+Started POST "/users" for ::1 at 2021-02-26 13:57:55 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 210ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3038)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:58:05 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 210ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:05 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 2010)
+
+
+Started DELETE "/users/2/recreational_areas/109" for ::1 at 2021-02-26 13:58:08 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"2", "id"=>"109", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 109], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 109]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 3543)
+
+
+Started DELETE "/users/2/recreational_areas/112" for ::1 at 2021-02-26 13:58:11 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"2", "id"=>"112", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 112], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 112]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 3543)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=AL" for ::1 at 2021-02-26 13:58:19 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"AL"}
+Completed 200 OK in 272ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 10734)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:24 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"AMITY", "facility_description"=>"<h2>Overview</h2>\nAmity Campground is a waterfront facility on the western shore of West Point Lake, which spans parts of Alabama and Georgia. \n<br/><br/>\nThis man-made lake has 525 miles of shoreline that provide excellent opportunities for fishing, camping, boating and other recreational activities.<h2>Recreation</h2>\nWhether sailing or power boating, West Point Lake is a boater's paradise. There are boat ramps in 34 public recreation areas around the lake, including Amity, as well as two privately owned full-service marinas.\n  \nFishing is one of the most popular activities on the lake. A dozen creeks and more than 40 square miles of lake provide plenty of good fishing spots for the thousands of anglers who fish here regularly. The lake abounds with bass, catfish, crappie and bream. \n  \nBank fishing is excellent at many locations, including public fishing piers at Hardley Creek, Rocky Point and McGee Bridge parks.\n  \nSeveral trails wind along the lake and through the landscape, including the Lakeside Trail, which is perfect for mountain biking.\n  \nA wildlife management area of nearly 10,000 acres, located at the upper end of the lake, provides habitat for many types of wildlife.<h2>Facilities</h2>\nAmity Campground offers 75 reservable campsites, most of which have electric and water hookups; there are also a few tent-only, non-electric sites. \n  \nBasketball and tennis courts and a playground provide additional recreation opportunities for guests.<h2>Natural Features</h2>\nSurrounded by rolling fields and deep forests that display outstanding fall foliage, West Point Lake extends 35 miles along the Chattahoochee River on the Alabama-Georgia state line. The campground is forested and sits on the shore overlooking the 25,900-acre lake.\n<h2>Nearby Attractions</h2>\nThe lake offers 21 day-use parks. While many people visit the lake to boat and camp, the parks offer a variety of other recreation facilities including tennis courts, ball fields, basketball courts, fishing piers with fish attractors, hiking trails and picnic shelters for individuals or large groups.<h2>Charges &amp; Cancellations</h2>\n Changes and Cancellations:\nA $10.00 service fee will apply if you change or cancel your reservation. Late cancellations are subject to additional fees. For full details see R1S Reservation Policy ", "facility_id"=>"232513", "facility_directions"=>"From West Point Georgia, travel north on Stateline Road/County Road 212 for approximately 7 miles, and watch for a sign for the campground on the right side of the road. County Road 393 on the right leads directly into the campground entrance.", "facility_email"=>"", "facility_phone"=>"334-499-2404"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "AMITY"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "AMITY"], ["facility_description", "<h2>Overview</h2>\nAmity Campground is a waterfront facility on the western shore of West Point Lake, which spans parts of Alabama and Georgia. \n<br/><br/>\nThis man-made lake has 525 miles of shoreline that provide excellent opportunities for fishing, camping, boating and other recreational activities.<h2>Recreation</h2>\nWhether sailing or power boating, West Point Lake is a boater's paradise. There are boat ramps in 34 public recreation areas around the lake, including Amity, as well as two privately owned full-service marinas.\n  \nFishing is one of the most popular activities on the lake. A dozen creeks and more than 40 square miles of lake provide plenty of good fishing spots for the thousands of anglers who fish here regularly. The lake abounds with bass, catfish, crappie and bream. \n  \nBank fishing is excellent at many locations, including public fishing piers at Hardley Creek, Rocky Point and McGee Bridge parks.\n  \nSeveral trails wind along the lake and through the landscape, including the Lakeside Trail, which is perfect for mountain biking.\n  \nA wildlife management area of nearly 10,000 acres, located at the upper end of the lake, provides habitat for many types of wildlife.<h2>Facilities</h2>\nAmity Campground offers 75 reservable campsites, most of which have electric and water hookups; there are also a few tent-only, non-electric sites. \n  \nBasketball and tennis courts and a playground provide additional recreation opportunities for guests.<h2>Natural Features</h2>\nSurrounded by rolling fields and deep forests that display outstanding fall foliage, West Point Lake extends 35 miles along the Chattahoochee River on the Alabama-Georgia state line. The campground is forested and sits on the shore overlooking the 25,900-acre lake.\n<h2>Nearby Attractions</h2>\nThe lake offers 21 day-use parks. While many people visit the lake to boat and camp, the parks offer a variety of other recreation facilities including tennis courts, ball fields, basketball courts, fishing piers with fish attractors, hiking trails and picnic shelters for individuals or large groups.<h2>Charges &amp; Cancellations</h2>\n Changes and Cancellations:\nA $10.00 service fee will apply if you change or cancel your reservation. Late cancellations are subject to additional fees. For full details see R1S Reservation Policy "], ["facility_id", "232513"], ["facility_directions", "From West Point Georgia, travel north on Stateline Road/County Road 212 for approximately 7 miles, and watch for a sign for the campground on the right side of the road. County Road 393 on the right leads directly into the campground entrance."], ["facility_email", ""], ["facility_phone", "334-499-2404"], ["user_id", 2], ["created_at", "2021-02-26 18:58:24.567173"], ["updated_at", "2021-02-26 18:58:24.567173"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 4143)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:26 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"AMITY", "facility_description"=>"<h2>Overview</h2>\nAmity Campground is a waterfront facility on the western shore of West Point Lake, which spans parts of Alabama and Georgia. \n<br/><br/>\nThis man-made lake has 525 miles of shoreline that provide excellent opportunities for fishing, camping, boating and other recreational activities.<h2>Recreation</h2>\nWhether sailing or power boating, West Point Lake is a boater's paradise. There are boat ramps in 34 public recreation areas around the lake, including Amity, as well as two privately owned full-service marinas.\n  \nFishing is one of the most popular activities on the lake. A dozen creeks and more than 40 square miles of lake provide plenty of good fishing spots for the thousands of anglers who fish here regularly. The lake abounds with bass, catfish, crappie and bream. \n  \nBank fishing is excellent at many locations, including public fishing piers at Hardley Creek, Rocky Point and McGee Bridge parks.\n  \nSeveral trails wind along the lake and through the landscape, including the Lakeside Trail, which is perfect for mountain biking.\n  \nA wildlife management area of nearly 10,000 acres, located at the upper end of the lake, provides habitat for many types of wildlife.<h2>Facilities</h2>\nAmity Campground offers 75 reservable campsites, most of which have electric and water hookups; there are also a few tent-only, non-electric sites. \n  \nBasketball and tennis courts and a playground provide additional recreation opportunities for guests.<h2>Natural Features</h2>\nSurrounded by rolling fields and deep forests that display outstanding fall foliage, West Point Lake extends 35 miles along the Chattahoochee River on the Alabama-Georgia state line. The campground is forested and sits on the shore overlooking the 25,900-acre lake.\n<h2>Nearby Attractions</h2>\nThe lake offers 21 day-use parks. While many people visit the lake to boat and camp, the parks offer a variety of other recreation facilities including tennis courts, ball fields, basketball courts, fishing piers with fish attractors, hiking trails and picnic shelters for individuals or large groups.<h2>Charges &amp; Cancellations</h2>\n Changes and Cancellations:\nA $10.00 service fee will apply if you change or cancel your reservation. Late cancellations are subject to additional fees. For full details see R1S Reservation Policy ", "facility_id"=>"232513", "facility_directions"=>"From West Point Georgia, travel north on Stateline Road/County Road 212 for approximately 7 miles, and watch for a sign for the campground on the right side of the road. County Road 393 on the right leads directly into the campground entrance.", "facility_email"=>"", "facility_phone"=>"334-499-2404"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "AMITY"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1784)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=AK" for ::1 at 2021-02-26 13:58:28 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"AK"}
+Completed 200 OK in 371ms (Views: 28.5ms | ActiveRecord: 0.0ms | Allocations: 18979)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:30 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Ptarmigan Cr Tr Shelter", "facility_description"=>"This small cabin is available on a first-come, first-served basis and is primarily intended as an emergency shelter. The cabin includes a water catchment system for collecting rain and melting snow; water should be treated before cooking or drinking. There is no stove in this shelter cabin, as it is intended only as a shield to the weather. Expect to camp at least one night along this 27mile trail. \r\n", "facility_id"=>"262674", "facility_directions"=>"Ptarmigan Creek Shelter Cabin is located approximately 10 trail miles (6.2 km) from Eagle Summit Wayside on the Pinnell Mountain National Recreation Trail in a saddle just below Pinnell Mountain.", "facility_email"=>"EasternInterior@blm.gov", "facility_phone"=>"907-474-2200"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Ptarmigan Cr Tr Shelter"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.3ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Ptarmigan Cr Tr Shelter"], ["facility_description", "This small cabin is available on a first-come, first-served basis and is primarily intended as an emergency shelter. The cabin includes a water catchment system for collecting rain and melting snow; water should be treated before cooking or drinking. There is no stove in this shelter cabin, as it is intended only as a shield to the weather. Expect to camp at least one night along this 27mile trail. \r\n"], ["facility_id", "262674"], ["facility_directions", "Ptarmigan Creek Shelter Cabin is located approximately 10 trail miles (6.2 km) from Eagle Summit Wayside on the Pinnell Mountain National Recreation Trail in a saddle just below Pinnell Mountain."], ["facility_email", "EasternInterior@blm.gov"], ["facility_phone", "907-474-2200"], ["user_id", 2], ["created_at", "2021-02-26 18:58:30.286103"], ["updated_at", "2021-02-26 18:58:30.286103"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4110)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:31 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"BLIND PASS CABIN", "facility_description"=>"<h2>Overview</h2>\nBlind Pass Cabin sits on the northwest shore of Hassler Island, on Blind Pass. This secluded retreat is open year-round and makes an ideal base camp for exploring \nthe various bays and inlets in the northern Behm Canal area.<br/><br/>\n\nThe site can be accessed by float plane, boat or kayak, depending on conditions. Guests are responsible for their own travel arrangements and safety, and must bring \nseveral of their own amenities.<h2>Recreation</h2>\nThe area is noted for king salmon runs into the Unuk River, with other salmon species, halibut, red snapper, Dungeness crab and shrimp also in abundance. A freshwater \nlake with trout is located about a half-mile upstream from the cabin. There is no trail to the lake.<br/><br/>\n\nSea kayaking is a popular mode of transportation, and many kayakers use this cabin as a base for exploring Bell Island, Gedney Pass and Bell Arm. It is also possible to \nkayak to Bailey Bay and hike to the Lake Shelokum Hot Springs. Guests must supply their own equipment and should consult <a href=\"http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=9450836\" rel=\"nofollow\">local tide tables</a> before departing.\n<br/><br/>\n\nHunting is also possible in designated seasons with a permit.<h2>Facilities</h2>\nThis 12-by-14 cabin ( pan-abode style ) has two single bunks and two double bunks, to sleep up to six people. It is also equipped with a table and benches, broom, oil heater and an outhouse. A mooring float is available, but it is not for the exclusive use of cabin guests.  \n\nWater, heating oil, and electricity are not provided. Guests must bring No.1 diesel oil or kerosene (five gallons will last about a week). Water is available from a nearby \ncreek, but guests should be sure to treat any water taken from a natural source prior to drinking or cooking with it ( water safety tips ). \nIt is recommended that guests bring their own water supply.  \n\nOther items to pack include sleeping bags, sleeping pads, lanterns or flashlights, cookware, plates, utensils, food, toilet paper, garbage bags, a fire extinguisher \nand matches, among other necessities. Guests are expected to pack out trash and clean the cabin before leaving ( click \nhere  for more cabin details).<h2>Natural Features</h2>\nThe cabin is tucked into a sheltered cove, surrounded by old-growth forest. Low tides reveal a long beach in front of the cabin, and there is an adjacent stream. Guests\nhave views of Blind Pass and densely forested Black Island, which makes up the opposite shore.<br/><br/> \n\nWildlife in the area include Sitka black-tailed deer, black bears and wolves (<a href=\"http://www.adfg.alaska.gov/index.cfm?adfg=livingwithbears.bearcountry\" rel=\"nofollow\">bear \nsafety information</a>). A variety of waterfowl and marine mammals may be seen in Blind Pass.", "facility_id"=>"232950", "facility_directions"=>"The cabin is located approximately 40 air miles north of Ketchikan on the northwest shore of Hassler Island, across from Black Island. Accessible by float plane or by \nboat. Mooring buoy in front of cabin is first-come, first-serve. Refer to USGS topographic map, Ketchikan D-5, and check <a href=\"http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=9450836\">local tide tables</a> to determine best times for arrival and departure.", "facility_email"=>"", "facility_phone"=>"907-225-2148"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "BLIND PASS CABIN"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.9ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "BLIND PASS CABIN"], ["facility_description", "<h2>Overview</h2>\nBlind Pass Cabin sits on the northwest shore of Hassler Island, on Blind Pass. This secluded retreat is open year-round and makes an ideal base camp for exploring \nthe various bays and inlets in the northern Behm Canal area.<br/><br/>\n\nThe site can be accessed by float plane, boat or kayak, depending on conditions. Guests are responsible for their own travel arrangements and safety, and must bring \nseveral of their own amenities.<h2>Recreation</h2>\nThe area is noted for king salmon runs into the Unuk River, with other salmon species, halibut, red snapper, Dungeness crab and shrimp also in abundance. A freshwater \nlake with trout is located about a half-mile upstream from the cabin. There is no trail to the lake.<br/><br/>\n\nSea kayaking is a popular mode of transportation, and many kayakers use this cabin as a base for exploring Bell Island, Gedney Pass and Bell Arm. It is also possible to \nkayak to Bailey Bay and hike to the Lake Shelokum Hot Springs. Guests must supply their own equipment and should consult <a href=\"http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=9450836\" rel=\"nofollow\">local tide tables</a> before departing.\n<br/><br/>\n\nHunting is also possible in designated seasons with a permit.<h2>Facilities</h2>\nThis 12-by-14 cabin ( pan-abode style ) has two single bunks and two double bunks, to sleep up to six people. It is also equipped with a table and benches, broom, oil heater and an outhouse. A mooring float is available, but it is not for the exclusive use of cabin guests.  \n\nWater, heating oil, and electricity are not provided. Guests must bring No.1 diesel oil or kerosene (five gallons will last about a week). Water is available from a nearby \ncreek, but guests should be sure to treat any water taken from a natural source prior to drinking or cooking with it ( water safety tips ). \nIt is recommended that guests bring their own water supply.  \n\nOther items to pack include sleeping bags, sleeping pads, lanterns or flashlights, cookware, plates, utensils, food, toilet paper, garbage bags, a fire extinguisher \nand matches, among other necessities. Guests are expected to pack out trash and clean the cabin before leaving ( click \nhere  for more cabin details).<h2>Natural Features</h2>\nThe cabin is tucked into a sheltered cove, surrounded by old-growth forest. Low tides reveal a long beach in front of the cabin, and there is an adjacent stream. Guests\nhave views of Blind Pass and densely forested Black Island, which makes up the opposite shore.<br/><br/> \n\nWildlife in the area include Sitka black-tailed deer, black bears and wolves (<a href=\"http://www.adfg.alaska.gov/index.cfm?adfg=livingwithbears.bearcountry\" rel=\"nofollow\">bear \nsafety information</a>). A variety of waterfowl and marine mammals may be seen in Blind Pass."], ["facility_id", "232950"], ["facility_directions", "The cabin is located approximately 40 air miles north of Ketchikan on the northwest shore of Hassler Island, across from Black Island. Accessible by float plane or by \nboat. Mooring buoy in front of cabin is first-come, first-serve. Refer to USGS topographic map, Ketchikan D-5, and check <a href=\"http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=9450836\">local tide tables</a> to determine best times for arrival and departure."], ["facility_email", ""], ["facility_phone", "907-225-2148"], ["user_id", 2], ["created_at", "2021-02-26 18:58:31.011963"], ["updated_at", "2021-02-26 18:58:31.011963"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 3.8ms | Allocations: 4162)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:33 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"EAST CREEK CABIN", "facility_description"=>"<h2>Overview</h2>\nEast Creek Cabin is a remote, rustic cabin on the Kenai Peninsula of south-central Alaska. It gives visitors a primitive camping experience amid spectacular scenery. In addition to miles of trails available for exploration, the cabin provides access to opportunities for big game hunting and wildlife viewing.\n<br /><br />\nThe cabin can be accessed by hiking, horseback riding, skiing, biking or snowmobiles. The trail is open to snowmobiles every other year. Visitors are responsible for their own travel arrangements and safety, and must bring several of their own amenities.<h2>Recreation</h2>\nHiking, horseback riding, mountain biking, cross country skiing and snowshoeing along Resurrection Pass Trail are popular activities. Learn more about Resurrection Pass Trail <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818059.pdf\" target=\"_blank\">North</a> and <a href=\" https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818060.pdf\" target=\"_blank\">South</a> and <a href=\"https://www.fs.usda.gov/recarea/chugach/recreation/hiking/recarea/?recid=6657&amp;actid=51\" target=\"_blank\">Devils Creek Trail</a> Active mining operations are on private claims of the creek, yet there are designated areas for the public to pan for gold along the trail. \n<br /><br />\nIn season, visitors hunt for moose, black and brown bears, Dall sheep, mountain goats, caribou and wolves in the surrounding forest. Fishing in the area is not great.<h2>Facilities</h2>\nThe cabin has bunk space for six and a maximum occupancy of eight people. It is equipped with counter space, table, benches and a wood stove for heat. A splitting maul and hand saw are available. An outhouse is also provided.\n<br /><br />\nThere is no electricity, potable water, mattresses, bedding, cooking utensils, or cut firewood at the cabin. Visitors should bring sleeping bags and pads, a cook stove, cooking gear and food. Water taken from lakes or streams should be treated or boiled before consumption. All garbage and food must be packed out.<h2>Natural Features</h2>\nThe cabin is north of Sterling Highway in the Resurrection Creek Valley. It is in a fairly level area, surrounded by a spruce and birch forest with views of nearby mountains and meadows. A variety of wildlife makes its home in the area. Berries ripen mid-July through mid-September.\n<br /><br />\nFor more information on access and regulations pertaining to this cabin, trail conditions, safety precautions and <a href=\"https://www.fs.usda.gov/main/r10/recreation/safety-ethics\">outdoor safety and ethics</a>, please contact the Seward Ranger District.", "facility_id"=>"233020", "facility_directions"=>"Follow the Hope Highway from Seward Highway after arriving on the Kenai Peninsula. From the Resurrection Pass North Trailhead at milepost 4 on Resurrection Creek Road, hike 14.5 miles to the cabin. (Add 1 mile to access in winter due to limited road plowing). From the Resurrection Pass South trailhead at milepost 53.2 on Sterling Highway, hike 24.3 miles to the cabin. \n<br /><br />\nRefer to USGS topographic map Seward C-8. <a href=\"http://ask.usgs.gov/to_order.html\">Maps</a> are available online or by calling the Seward Ranger District at 907-288-3178.\n<br /><br />\nWinter travelers need to be able to evaluate <a href=\"http://www.cnfaic.org/\">avalanche</a> and over-ice travel conditions. For more current travel conditions call the district office. The trail is closed to horse/pack stock from April 1 to June 30, and is open to over-snow motorized vehicles from Dec. 1 to April 30 every other winter season, beginning with the winter of 2007-2008. It is closed to motorized vehicles every other winter season beginning with the 2008-2009 winter season.<br /><br />\n\nLearn more about <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818059.pdf\">Resurrection North</a> and <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818060.pdf\"> Resurrection South.</a>", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "EAST CREEK CABIN"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "EAST CREEK CABIN"], ["facility_description", "<h2>Overview</h2>\nEast Creek Cabin is a remote, rustic cabin on the Kenai Peninsula of south-central Alaska. It gives visitors a primitive camping experience amid spectacular scenery. In addition to miles of trails available for exploration, the cabin provides access to opportunities for big game hunting and wildlife viewing.\n<br /><br />\nThe cabin can be accessed by hiking, horseback riding, skiing, biking or snowmobiles. The trail is open to snowmobiles every other year. Visitors are responsible for their own travel arrangements and safety, and must bring several of their own amenities.<h2>Recreation</h2>\nHiking, horseback riding, mountain biking, cross country skiing and snowshoeing along Resurrection Pass Trail are popular activities. Learn more about Resurrection Pass Trail <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818059.pdf\" target=\"_blank\">North</a> and <a href=\" https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818060.pdf\" target=\"_blank\">South</a> and <a href=\"https://www.fs.usda.gov/recarea/chugach/recreation/hiking/recarea/?recid=6657&amp;actid=51\" target=\"_blank\">Devils Creek Trail</a> Active mining operations are on private claims of the creek, yet there are designated areas for the public to pan for gold along the trail. \n<br /><br />\nIn season, visitors hunt for moose, black and brown bears, Dall sheep, mountain goats, caribou and wolves in the surrounding forest. Fishing in the area is not great.<h2>Facilities</h2>\nThe cabin has bunk space for six and a maximum occupancy of eight people. It is equipped with counter space, table, benches and a wood stove for heat. A splitting maul and hand saw are available. An outhouse is also provided.\n<br /><br />\nThere is no electricity, potable water, mattresses, bedding, cooking utensils, or cut firewood at the cabin. Visitors should bring sleeping bags and pads, a cook stove, cooking gear and food. Water taken from lakes or streams should be treated or boiled before consumption. All garbage and food must be packed out.<h2>Natural Features</h2>\nThe cabin is north of Sterling Highway in the Resurrection Creek Valley. It is in a fairly level area, surrounded by a spruce and birch forest with views of nearby mountains and meadows. A variety of wildlife makes its home in the area. Berries ripen mid-July through mid-September.\n<br /><br />\nFor more information on access and regulations pertaining to this cabin, trail conditions, safety precautions and <a href=\"https://www.fs.usda.gov/main/r10/recreation/safety-ethics\">outdoor safety and ethics</a>, please contact the Seward Ranger District."], ["facility_id", "233020"], ["facility_directions", "Follow the Hope Highway from Seward Highway after arriving on the Kenai Peninsula. From the Resurrection Pass North Trailhead at milepost 4 on Resurrection Creek Road, hike 14.5 miles to the cabin. (Add 1 mile to access in winter due to limited road plowing). From the Resurrection Pass South trailhead at milepost 53.2 on Sterling Highway, hike 24.3 miles to the cabin. \n<br /><br />\nRefer to USGS topographic map Seward C-8. <a href=\"http://ask.usgs.gov/to_order.html\">Maps</a> are available online or by calling the Seward Ranger District at 907-288-3178.\n<br /><br />\nWinter travelers need to be able to evaluate <a href=\"http://www.cnfaic.org/\">avalanche</a> and over-ice travel conditions. For more current travel conditions call the district office. The trail is closed to horse/pack stock from April 1 to June 30, and is open to over-snow motorized vehicles from Dec. 1 to April 30 every other winter season, beginning with the winter of 2007-2008. It is closed to motorized vehicles every other winter season beginning with the 2008-2009 winter season.<br /><br />\n\nLearn more about <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818059.pdf\">Resurrection North</a> and <a href=\"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818060.pdf\"> Resurrection South.</a>"], ["facility_email", ""], ["facility_phone", ""], ["user_id", 2], ["created_at", "2021-02-26 18:58:33.660883"], ["updated_at", "2021-02-26 18:58:33.660883"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 4195)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:36 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"STARRIGAVAN CREEK CABIN", "facility_description"=>"<h2>Overview</h2>\nStarrigavan Creek Cabin is a drive-up, high-use, seasonally accessible log cabin within the Starrigavan Recreation Area. The cabin was constructed in 2008 from young Sitka spruce trees harvested around Starrigavan Creek to improve wildlife and fish habitat. The cabin is an experiment in the longevity of young spruce logs for construction purposes, making it the first young-growth cabin and also the first cabin within a recreation area in the Tongass National Forest.<br/><br/>\n\nAccess to Sitka is only by ferry or airplane. The cabin is a two-minute drive from the Alaska Marine Highway Sitka Ferry Terminal or a 7-mile drive from downtown Sitka or the airport. Visitors are responsible for their own travel arrangements and safety, and must bring some of their own amenities.<h2>Recreation</h2>\nStarrigavan offers saltwater and freshwater fishing opportunities. Visitors also enjoy kayaking, photography, hiking and birding. Hiking options include the Estuary Life Trail, Forest and Muskeg Trail, Mosquito Cove Trail and numerous intertwining paths and roadways within the recreation area.<br/><br/>\n\nFor information about fishing permits and seasons, visit the Alaska Department of Fish and Game website.<h2>Facilities</h2>\nThe popular cabin is equipped with beds for six adults, but can accommodate a maximum of eight people if younger children are involved. The cabin is available solely for overnight camping. See restrictions on maximum number of persons below. The main level of the cabin has one single bunk over an accessible bunk, a table with benches, a wood stove for heat, a cooking counter, a broom and dustpan. A stairway leads to the upstairs sleeping loft, which offers two double-size bunks, a table, two chairs and a lamp table. The cabin does not have electricity or indoor plumbing.  \n\nA bench overlooks Starrigavan Creek. A picnic table and a combination campfire ring/grill with log benches are provided outside. A vault toilet is located 200 feet from the cabin; artesian well water is 300 feet from the cabin. Parking space is provided for up to four standard vehicles.  \n\nVisitors must bring sleeping bags and pads, garbage bags, matches, fire starter, a tablecloth to protect cedar tabletop, a cooking stove, pots, pans, food and coolers, eating and cooking utensils, lanterns and flashlights (candles are discouraged).  \n\nThis is a locked cabin that requires visitors to pre-arrange access. See “Need to Know” section for details of cabin and gate access.\n  \n Click here  for more cabin information.<h2>Natural Features</h2>\nThe cabin is situated next to Starrigavan Creek and is surrounded by a temperate rainforest of hemlock and spruce trees with salmonberry bushes, low shrubs and mosses covering the forest floor. The cabin occupies an old campsite and is located within the major camping loop of Starrigavan Recreation Area.<br/><br/>\n\nStarrigavan Recreation Area houses a diverse range of forest, estuary and marine habitats. Depending on the season, visitors may view brown bear, spawning coho and pink salmon, common merganser, bald eagle, great blue heron, bufflehead, kingfisher, river otter or Sitka black-tailed deer. Brown bear frequent the area.", "facility_id"=>"233179", "facility_directions"=>"Located 7 miles northeast of Sitka at the end of Halibut Point Road, about 3/4 mile from the local Alaska Marine Highway ferry terminal. There are no roads to Sitka.<br /><br />\n\nAccess is via the Alaska Marine Highway or Alaska Airlines. Upon exiting the Ferry Terminal parking lot, turn left. Drive 3/4 mile on the state highway, also known as Halibut Point Road, or walk the same distance on the separate pedestrian walkway. The Estuary Loop, where this cabin is located (in Campsite 6), is accessed from the last right turn before the end of the state highway.<br /><br />\n\nFrom the airport, go across the O&rsquo;Connell Bridge through downtown Sitka to the intersection of Sawmill Creek Road and Halibut Point Road, which is a roundabout. Turn onto Halibut Point Road and travel 7 miles north to Starrigavan Recreation Area.", "facility_email"=>"r10_sitka_rd@fs.fed.us", "facility_phone"=>"907-747-6671"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "STARRIGAVAN CREEK CABIN"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "STARRIGAVAN CREEK CABIN"], ["facility_description", "<h2>Overview</h2>\nStarrigavan Creek Cabin is a drive-up, high-use, seasonally accessible log cabin within the Starrigavan Recreation Area. The cabin was constructed in 2008 from young Sitka spruce trees harvested around Starrigavan Creek to improve wildlife and fish habitat. The cabin is an experiment in the longevity of young spruce logs for construction purposes, making it the first young-growth cabin and also the first cabin within a recreation area in the Tongass National Forest.<br/><br/>\n\nAccess to Sitka is only by ferry or airplane. The cabin is a two-minute drive from the Alaska Marine Highway Sitka Ferry Terminal or a 7-mile drive from downtown Sitka or the airport. Visitors are responsible for their own travel arrangements and safety, and must bring some of their own amenities.<h2>Recreation</h2>\nStarrigavan offers saltwater and freshwater fishing opportunities. Visitors also enjoy kayaking, photography, hiking and birding. Hiking options include the Estuary Life Trail, Forest and Muskeg Trail, Mosquito Cove Trail and numerous intertwining paths and roadways within the recreation area.<br/><br/>\n\nFor information about fishing permits and seasons, visit the Alaska Department of Fish and Game website.<h2>Facilities</h2>\nThe popular cabin is equipped with beds for six adults, but can accommodate a maximum of eight people if younger children are involved. The cabin is available solely for overnight camping. See restrictions on maximum number of persons below. The main level of the cabin has one single bunk over an accessible bunk, a table with benches, a wood stove for heat, a cooking counter, a broom and dustpan. A stairway leads to the upstairs sleeping loft, which offers two double-size bunks, a table, two chairs and a lamp table. The cabin does not have electricity or indoor plumbing.  \n\nA bench overlooks Starrigavan Creek. A picnic table and a combination campfire ring/grill with log benches are provided outside. A vault toilet is located 200 feet from the cabin; artesian well water is 300 feet from the cabin. Parking space is provided for up to four standard vehicles.  \n\nVisitors must bring sleeping bags and pads, garbage bags, matches, fire starter, a tablecloth to protect cedar tabletop, a cooking stove, pots, pans, food and coolers, eating and cooking utensils, lanterns and flashlights (candles are discouraged).  \n\nThis is a locked cabin that requires visitors to pre-arrange access. See “Need to Know” section for details of cabin and gate access.\n  \n Click here  for more cabin information.<h2>Natural Features</h2>\nThe cabin is situated next to Starrigavan Creek and is surrounded by a temperate rainforest of hemlock and spruce trees with salmonberry bushes, low shrubs and mosses covering the forest floor. The cabin occupies an old campsite and is located within the major camping loop of Starrigavan Recreation Area.<br/><br/>\n\nStarrigavan Recreation Area houses a diverse range of forest, estuary and marine habitats. Depending on the season, visitors may view brown bear, spawning coho and pink salmon, common merganser, bald eagle, great blue heron, bufflehead, kingfisher, river otter or Sitka black-tailed deer. Brown bear frequent the area."], ["facility_id", "233179"], ["facility_directions", "Located 7 miles northeast of Sitka at the end of Halibut Point Road, about 3/4 mile from the local Alaska Marine Highway ferry terminal. There are no roads to Sitka.<br /><br />\n\nAccess is via the Alaska Marine Highway or Alaska Airlines. Upon exiting the Ferry Terminal parking lot, turn left. Drive 3/4 mile on the state highway, also known as Halibut Point Road, or walk the same distance on the separate pedestrian walkway. The Estuary Loop, where this cabin is located (in Campsite 6), is accessed from the last right turn before the end of the state highway.<br /><br />\n\nFrom the airport, go across the O&rsquo;Connell Bridge through downtown Sitka to the intersection of Sawmill Creek Road and Halibut Point Road, which is a roundabout. Turn onto Halibut Point Road and travel 7 miles north to Starrigavan Recreation Area."], ["facility_email", "r10_sitka_rd@fs.fed.us"], ["facility_phone", "907-747-6671"], ["user_id", 2], ["created_at", "2021-02-26 18:58:36.050136"], ["updated_at", "2021-02-26 18:58:36.050136"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.8ms | Allocations: 4155)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:37 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Sourdough Creek Campground", "facility_description"=>"<span style=\"font-weight:bold;\">Sourdough Creek Campground</span> is located at MP 147.5 of the Richardson Highway near the shores of the Gulkana River. The campground has 42 camp sites, including 4 accessible and 2 walk-in sites. All campsites are available on a <span style=\"font-weight:bold;\">first-come, first-served basis.</span>  <p> The campground is equipped with restrooms, water, picnic tables, and fire rings. <p>  Campers may also enjoy a short hike along the Sourdough Creek Interpretive Trail within the campground. <p> <span style=\"font-weight:bold;\"> Fees:</span> $12/night for regular, $6/night for walk-in site. <p> The <span style=\"font-weight:bold;\">boat launch</span> area is the take-out for float trips on the <a href=\"https://www.blm.gov/visit/gulkana-river\">Gulkana Wild and Scenic River</a> and provides river access to both motorized boaters and floaters.", "facility_id"=>"14550", "facility_directions"=>"Enter the campground by turning west at milepost 147.5 Richardson Highway.", "facility_email"=>"blm_ak_gfo_general_delivery@blm.gov", "facility_phone"=>"907-822-3217"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Sourdough Creek Campground"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Sourdough Creek Campground"], ["facility_description", "<span style=\"font-weight:bold;\">Sourdough Creek Campground</span> is located at MP 147.5 of the Richardson Highway near the shores of the Gulkana River. The campground has 42 camp sites, including 4 accessible and 2 walk-in sites. All campsites are available on a <span style=\"font-weight:bold;\">first-come, first-served basis.</span>  <p> The campground is equipped with restrooms, water, picnic tables, and fire rings. <p>  Campers may also enjoy a short hike along the Sourdough Creek Interpretive Trail within the campground. <p> <span style=\"font-weight:bold;\"> Fees:</span> $12/night for regular, $6/night for walk-in site. <p> The <span style=\"font-weight:bold;\">boat launch</span> area is the take-out for float trips on the <a href=\"https://www.blm.gov/visit/gulkana-river\">Gulkana Wild and Scenic River</a> and provides river access to both motorized boaters and floaters."], ["facility_id", "14550"], ["facility_directions", "Enter the campground by turning west at milepost 147.5 Richardson Highway."], ["facility_email", "blm_ak_gfo_general_delivery@blm.gov"], ["facility_phone", "907-822-3217"], ["user_id", 2], ["created_at", "2021-02-26 18:58:37.942299"], ["updated_at", "2021-02-26 18:58:37.942299"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4146)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:38 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"DEEP BAY CABIN", "facility_description"=>"<h2>Overview</h2>\nThe Deep Bay Cabin is a fully ADA accessible, large group recreation cabin located on Zarembo Island. It is popular for hunting and exploring Zarembo Island's remote road sytem. \n\nThe cabin can be accessed by float plane or boat from Roosevelt Harbor, where there is a float dock, ramp and parking area, or by beach access from Deep Bay. Visitors are responsible for their own travel arrangements and safety, and must bring their own amenities.\n<h2>Recreation</h2>\nThe cabin is located on Zarembo Island's extensive road system which provides access and opportunities for recreation and subsistence gathering.  There are excellent hunting and berry gathering opportunities. Open roads allow for use of both vehicles and ATVs. There are ATV trails on the island including the Whale Trail, where humpback whales can be observed from the shore. Zarembo's road system is remote-all vehicles and ATVs are brought to the island by boat.  <h2>Facilities</h2>\nThe Deep Bay Cabin is fully accessible and includes a wheelchair ramp from the parking lot to the cabin.  It is a large group cabin and can accommodate up to 12 people.  It consists of two buildings connected by a partially covered large deck with a picnic table.  Each building has sleeping rooms and a common room.   There is an oil stove for heat in each building.  There is a small storage shed, an outside fire grill, picnic table, and outhouse.  The wooden furnishings in the cabins were built by Wrangell High School's industrial arts class in 2017. \n\nWater and electricity are not provided. Water is available from a small nearby stream, but guests should be sure to treat water taken from any outside source prior to consumption ( water safety tips ). It is recommended that guests bring their own water supply. Fuel oil is not provided.  Guests should bring their own #1 fuel oil for the stove. Cooking facilities are also not available. Guests should bring all of their own camping amenities.  Guests are expected to pack out trash and clean the cabin before leaving. \n\n\n\n<h2>Natural Features</h2>\nThe cabin sits on small bench above Deep Bay in an opening in the forest.  The surrounding terrain is mountainous and densely forested, with occasional muskegs. The area has abundant wildlife and marine life.  Roosevelt elk are occasionally seen on the island.\n", "facility_id"=>"253458", "facility_directions"=>"Deep Bay Cabin is located on the south end of Deep Bay on the northeast corner of Zarembo Island. The cabin is a short walk from Deep Bay and about 1/4 mile from Roosevelt Harbor just off of the Zarembo Beach Road FSR 6590. The cabin is only accessible by boat or float plane, about 15 miles from Wrangell. There is a float dock, ramp, and parking area at Roosevelt Harbor.   \n\nUse caution when anchoring a boat due to the rocky shoreline. Check  local tide tables  to determine the best time for arrival and departure.\n\n\n\n\n", "facility_email"=>"", "facility_phone"=>"907-874-2323"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "DEEP BAY CABIN"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "DEEP BAY CABIN"], ["facility_description", "<h2>Overview</h2>\nThe Deep Bay Cabin is a fully ADA accessible, large group recreation cabin located on Zarembo Island. It is popular for hunting and exploring Zarembo Island's remote road sytem. \n\nThe cabin can be accessed by float plane or boat from Roosevelt Harbor, where there is a float dock, ramp and parking area, or by beach access from Deep Bay. Visitors are responsible for their own travel arrangements and safety, and must bring their own amenities.\n<h2>Recreation</h2>\nThe cabin is located on Zarembo Island's extensive road system which provides access and opportunities for recreation and subsistence gathering.  There are excellent hunting and berry gathering opportunities. Open roads allow for use of both vehicles and ATVs. There are ATV trails on the island including the Whale Trail, where humpback whales can be observed from the shore. Zarembo's road system is remote-all vehicles and ATVs are brought to the island by boat.  <h2>Facilities</h2>\nThe Deep Bay Cabin is fully accessible and includes a wheelchair ramp from the parking lot to the cabin.  It is a large group cabin and can accommodate up to 12 people.  It consists of two buildings connected by a partially covered large deck with a picnic table.  Each building has sleeping rooms and a common room.   There is an oil stove for heat in each building.  There is a small storage shed, an outside fire grill, picnic table, and outhouse.  The wooden furnishings in the cabins were built by Wrangell High School's industrial arts class in 2017. \n\nWater and electricity are not provided. Water is available from a small nearby stream, but guests should be sure to treat water taken from any outside source prior to consumption ( water safety tips ). It is recommended that guests bring their own water supply. Fuel oil is not provided.  Guests should bring their own #1 fuel oil for the stove. Cooking facilities are also not available. Guests should bring all of their own camping amenities.  Guests are expected to pack out trash and clean the cabin before leaving. \n\n\n\n<h2>Natural Features</h2>\nThe cabin sits on small bench above Deep Bay in an opening in the forest.  The surrounding terrain is mountainous and densely forested, with occasional muskegs. The area has abundant wildlife and marine life.  Roosevelt elk are occasionally seen on the island.\n"], ["facility_id", "253458"], ["facility_directions", "Deep Bay Cabin is located on the south end of Deep Bay on the northeast corner of Zarembo Island. The cabin is a short walk from Deep Bay and about 1/4 mile from Roosevelt Harbor just off of the Zarembo Beach Road FSR 6590. The cabin is only accessible by boat or float plane, about 15 miles from Wrangell. There is a float dock, ramp, and parking area at Roosevelt Harbor.   \n\nUse caution when anchoring a boat due to the rocky shoreline. Check  local tide tables  to determine the best time for arrival and departure.\n\n\n\n\n"], ["facility_email", ""], ["facility_phone", "907-874-2323"], ["user_id", 2], ["created_at", "2021-02-26 18:58:38.871193"], ["updated_at", "2021-02-26 18:58:38.871193"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 4130)
+
+
+Started POST "/users/2/recreational_areas" for ::1 at 2021-02-26 13:58:41 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"STARRIGAVAN CAMPSITES", "facility_description"=>"<h2>Overview</h2>\nStarrigavan Campsites lie within Starrigavan Recreation Area about seven miles north of Sitka. Visitors enjoy hiking, photography, wildlife viewing, picnicking, fishing and kayaking. Learn more about the campsites <a href=\"  http://www.fs.usda.gov/detail/tongass/about-forest/districts/?cid=stelprdb5396292\">here</a>.\n\n<br /><br />Access to Sitka is by boat or airplane. The campsites are a two-minute drive from the Alaska Marine Highway Sitka Ferry Terminal or a seven-mile drive from downtown Sitka or the airport.\n<h2>Recreation</h2>\nHiking, picnicking and wildlife viewing are popular pursuits at Starrigavan. Visitors also enjoy fishing in saltwater and freshwater areas. Many bird and wildlife viewing opportunities exist. Hiking options include the Estuary Life Boardwalk Trail, Forest and Muskeg Trail, the Mosquito Cove Trail and numerous intertwining path and roadways of the recreation area.<br /><br />\nFor information about fishing permits and seasons, visit the <a href=\"http://www.adfg.alaska.gov/\"> Alaska Department of Fish and Game </a>.\n<h2>Facilities</h2>\nThis primitive camping area is fully accessible and offers a variety of accommodations, including group tent sites, individual campsites (both drive in, one is pull through, and hike-in) and <a href=\" http://www.recreation.gov/camping/starrigavan-creek-cabin/r/campgroundDetails.do?contractCode=NRSO&amp;parkId=72073\"> Starrigavan Creek Cabin</a>. Several sites overlook Starrigavan Bay; others are close to Starrigavan Creek. Maximum RV length accommodated is 38 feet.<br /><br />\nTwo small group tent sites accommodate up to 20 people, offering twice the amount of tent space and vehicle parking as individual campsites. They also have covered cooking shelters with two picnic tables, a large grill and a fire ring with two log benches.<br /><br />\nPicnic tables, campfire rings, gravel tent pads and gravel parking spurs are furnished at the individual sites. Vault toilets, drinking water, bear-proof food lockers and seasonal trash collection are provided. Firewood is provided for a small fee. A dump station is located in Sitka, seven miles away.\n<h2>Natural Features</h2>\nThe campsites are situated within a typical temperate rainforest of hemlock and spruce trees with salmonberry bushes, low shrubs and mosses covering the forest floor.<br /><br />\n\nThe Starrigavan Recreation Area is home to a diverse range of forest, estuary and marine habitats. Depending on the season, visitors might spot brown bear, spawning coho (silver) and pink (humpy) salmon, common merganser, bufflehead, bald eagle, great blue heron, kingfisher, river otter or Sitka black-tailed deer.\n\n<h2>Nearby Attractions</h2>\nThe State of Alaska's Old Sitka State Historic Site is nearby. Visitors can take half or full-day kayak trips to Katlian Bay and Siginaka Islands.", "facility_id"=>"233994", "facility_directions"=>"Starrigavan Recreation Area is located 7 miles northeast of Sitka at the end of\nHalibut Point Road and 3/4 mile from the local Alaska Marine Highway\nFerry Terminal. There are no roads to Sitka. Access is via the Alaska Marine\nHighway or Alaska Airlines. \n<br /><br />\nUpon exiting the Ferry Terminal parking lot, turn left. Estuary and Backpackers Loop are the last right hand turn before the end of the highway. Bayside Loop is the last left hand turn before the end of the highway.\n<br /><br />\nFrom the airport, go across Japonski Bridge to downtown Sitka. Take Halibut\nPoint Road north 7 miles to Starrigavan Recreation Area.", "facility_email"=>"r10_sitka_rd@fs.fed.us", "facility_phone"=>"907-747-6671"}, "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "STARRIGAVAN CAMPSITES"], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "STARRIGAVAN CAMPSITES"], ["facility_description", "<h2>Overview</h2>\nStarrigavan Campsites lie within Starrigavan Recreation Area about seven miles north of Sitka. Visitors enjoy hiking, photography, wildlife viewing, picnicking, fishing and kayaking. Learn more about the campsites <a href=\"  http://www.fs.usda.gov/detail/tongass/about-forest/districts/?cid=stelprdb5396292\">here</a>.\n\n<br /><br />Access to Sitka is by boat or airplane. The campsites are a two-minute drive from the Alaska Marine Highway Sitka Ferry Terminal or a seven-mile drive from downtown Sitka or the airport.\n<h2>Recreation</h2>\nHiking, picnicking and wildlife viewing are popular pursuits at Starrigavan. Visitors also enjoy fishing in saltwater and freshwater areas. Many bird and wildlife viewing opportunities exist. Hiking options include the Estuary Life Boardwalk Trail, Forest and Muskeg Trail, the Mosquito Cove Trail and numerous intertwining path and roadways of the recreation area.<br /><br />\nFor information about fishing permits and seasons, visit the <a href=\"http://www.adfg.alaska.gov/\"> Alaska Department of Fish and Game </a>.\n<h2>Facilities</h2>\nThis primitive camping area is fully accessible and offers a variety of accommodations, including group tent sites, individual campsites (both drive in, one is pull through, and hike-in) and <a href=\" http://www.recreation.gov/camping/starrigavan-creek-cabin/r/campgroundDetails.do?contractCode=NRSO&amp;parkId=72073\"> Starrigavan Creek Cabin</a>. Several sites overlook Starrigavan Bay; others are close to Starrigavan Creek. Maximum RV length accommodated is 38 feet.<br /><br />\nTwo small group tent sites accommodate up to 20 people, offering twice the amount of tent space and vehicle parking as individual campsites. They also have covered cooking shelters with two picnic tables, a large grill and a fire ring with two log benches.<br /><br />\nPicnic tables, campfire rings, gravel tent pads and gravel parking spurs are furnished at the individual sites. Vault toilets, drinking water, bear-proof food lockers and seasonal trash collection are provided. Firewood is provided for a small fee. A dump station is located in Sitka, seven miles away.\n<h2>Natural Features</h2>\nThe campsites are situated within a typical temperate rainforest of hemlock and spruce trees with salmonberry bushes, low shrubs and mosses covering the forest floor.<br /><br />\n\nThe Starrigavan Recreation Area is home to a diverse range of forest, estuary and marine habitats. Depending on the season, visitors might spot brown bear, spawning coho (silver) and pink (humpy) salmon, common merganser, bufflehead, bald eagle, great blue heron, kingfisher, river otter or Sitka black-tailed deer.\n\n<h2>Nearby Attractions</h2>\nThe State of Alaska's Old Sitka State Historic Site is nearby. Visitors can take half or full-day kayak trips to Katlian Bay and Siginaka Islands."], ["facility_id", "233994"], ["facility_directions", "Starrigavan Recreation Area is located 7 miles northeast of Sitka at the end of\nHalibut Point Road and 3/4 mile from the local Alaska Marine Highway\nFerry Terminal. There are no roads to Sitka. Access is via the Alaska Marine\nHighway or Alaska Airlines. \n<br /><br />\nUpon exiting the Ferry Terminal parking lot, turn left. Estuary and Backpackers Loop are the last right hand turn before the end of the highway. Bayside Loop is the last left hand turn before the end of the highway.\n<br /><br />\nFrom the airport, go across Japonski Bridge to downtown Sitka. Take Halibut\nPoint Road north 7 miles to Starrigavan Recreation Area."], ["facility_email", "r10_sitka_rd@fs.fed.us"], ["facility_phone", "907-747-6671"], ["user_id", 2], ["created_at", "2021-02-26 18:58:41.233679"], ["updated_at", "2021-02-26 18:58:41.233679"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 4179)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 13:58:42 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:59:12 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 206ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 942)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:59:13 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 13:59:15 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 297ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 23531)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:59:19 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:59:21 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1580)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 13:59:25 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 15:02:41 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 251ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 6514)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 15:02:42 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.9ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 29ms (Views: 7.1ms | ActiveRecord: 1.5ms | Allocations: 5000)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=GA" for ::1 at 2021-02-26 15:02:59 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 420ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 23018)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 15:03:23 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 15:03:49 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 256ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 957)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 15:03:49 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1587)
+
+
+Started GET "/search?keyword=camping&activity=camping&state=GA" for ::1 at 2021-02-26 15:05:21 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"camping", "activity"=>"camping", "state"=>"GA"}
+Completed 200 OK in 370ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 22023)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 15:05:30 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"BOLDING MILL", "facility_description"=>"<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system.", "facility_id"=>"232531", "facility_directions"=>"From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground.", "facility_email"=>"Brent.J.Cossette@sam.usace.army.mil", "facility_phone"=>"770-534-6960"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "BOLDING MILL"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (1.0ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "BOLDING MILL"], ["facility_description", "<h2>Overview</h2>\nBolding Mill Campground is an excellent choice for camping on Lake Sidney Lanier, offering plenty of comfortable amenities in addition to a well-kept facility.  <br/><br/>\nVisitors will enjoy fishing and boating on the lake as well as the lush picnic area and large swimming beach, perfect for families.<br/><br/><h2>Recreation</h2>\nThe large swimming beach is concrete, which provides a gentle slope and ADA access for visitors. An on-site boat ramp and fishing pier provide access to many water activities.\nLand-based recreation features picnic shelters and playground area near the front of the park.\n<h2>Facilities</h2>\nThe campground offers 88 sites with electric and water hookups (no sewer). There's also nine tent-only primitive sites.  Campground conveniences include a laundry facility, fishing pier, and restroom/showerhouses.\nFacilities outside of the campground but within Bolding Mill park include the playground, swim beach and boat ramp. There's also two dump stations, inside and outside the campground which rotate use per year.<h2>Natural Features</h2>\nLake Lanier spans 38,000 surface water acres and 17,000 land acres across five counties in northern Georgia. The reservoir is known for its aqua-blue coloring and spectacular scenery in the forested foothills of the Blue Ridge Mountains.   \nBolding Mill campground is on the northwest side of the lake, which has plenty of grass and shade for comfortable camping.\n<h2>Nearby Attractions</h2>\nHead to the Don Carter State Park for birding and hiking opportunities. Another idea is the Sawnee Mountain Preserve, with breathtaking scenic overlooks, hiking opportunities and rock climbing.\nNearby Gainesville, Dawsonville and Dalonega provide many different experiences and opportunities.<h2>Charges &amp; Cancellations</h2>\nCancellations must be made via the online/phone reservation system."], ["facility_id", "232531"], ["facility_directions", "From Atlanta, GA, take SR 400 north to Exit 17, turn right on GA Hwy\n306, turn right on GA Hwy 53, turn left on Old Sardis Rd, and turn left\non Chestatee Rd.  Follow into campground."], ["facility_email", "Brent.J.Cossette@sam.usace.army.mil"], ["facility_phone", "770-534-6960"], ["user_id", 1], ["created_at", "2021-02-26 20:05:30.971053"], ["updated_at", "2021-02-26 20:05:30.971053"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 30ms (Views: 0.4ms | ActiveRecord: 4.1ms | Allocations: 13608)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 15:05:37 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"CONEROSS PARK", "facility_description"=>"<h2>Overview</h2>\n  \nConeross Campground is a moderately sloping, heavily wooded 136 acre site of mixed hardwoods and pines. The site presently offers camping and boat launching facilities to include: 1 gatehouse/entrance, 2 park attendant campsites, 106 public use campsites (94 with full water and electric hookups and 12 primitive sites with impact pad only), 4 comfort stations with showers, 2 dump stations, 1 boat ramp, 1 courtesy dock, 4 playgrounds, 2 designated swim areas/beaches, and associated paved roads and parking areas throughout. <h2>Recreation</h2>\nFishing is one of the most popular activities at the lake. Sought-after species include largemouth bass, bream, crappie, catfish, striped bass and hybrid bass. \n<br/><br/>\nThe lake appeals to boaters of all kinds, whether their specialty is canoeing, sailing or motor boating. Coves and areas of quiet water provide water skiers with excellent surfaces.\n<br/><br/>\nSwimmers will find sand beaches and designated swim areas along the shoreline. <h2>Facilities</h2>\n The site presently offers camping and boat launching facilities to include: 1 gatehouse/entrance, 2 park attendant campsites, 106 public use campsites (94 with full water and electric hookups and 12 primitive sites with impact pad only), 4 comfort stations with showers, 2 dump stations, 1 boat ramp, 1 courtesy dock, 4 playgrounds, 2 designated swim areas/beaches, and associated paved roads and parking areas throughout.  <h2>Natural Features</h2>\n \nHartwell Lake is a man-made lake bordering Georgia and South Carolina on the Savannah, Tugaloo and Seneca Rivers. The dam and lake area boasts 8 campgrounds and 11 day-use facilities that are operated by the US Army Corps of Engineers. \nThe Hartwell Project was originally authorized for hydropower, flood control, and navigation. Later, recreation, water quality, water supply, and fish and wildlife management were added. \nSurrounding vegetation allows for plenty of shade, and the 962 miles of shoreline provide numerous swimming beaches, picnic areas and boat ramps. \n\n<h2>Nearby Attractions</h2>\nThe campground is a short drive away from Clemson, South Carolina and Clemson University, offering additional tourism opportunities, along with grocery stores, gas stations and restaurants.<h2>Charges &amp; Cancellations</h2>\n\n- Once your reservation has been created, there will be a $10.00 fee to cancel and a $10.00 fee to change your site or dates.\n- Cancellations made the day before, or up to the day after your arrival date will also be charged the first night use fee.\n- Reserved campsites will be held until check out time ( 2 p.m.) on the day following your scheduled arrival date.  If you do not arrive at campground by 2 p.m. to fulfill your reservation, your reservation will be cancelled and you will be assessed a $20 service fee and forfeit the first night use fee.  \n- If your reservation is for one night and you have been charged the first nights use fee, there is no $10 service fee.\nRefunds: \n- To insure fairness for all Recreation.gov customers, any reservation with departure dates outside the 6 or 12 month maximum window cannot be changed or cancelled until 18 days after the reservation is made.\n- Refunds must be requested no later than 14 days after scheduled departure date.  Refunds may be requested through NNRS Customer Service at 888-448-1474.  Refunds for bank card payments will be issued as a credit to the original bank card.  Cash and check purchases will be refunded by check and may take up to 8 weekds for approval and processing.  ", "facility_id"=>"232555", "facility_directions"=>"From Interstate 85 in South Carolina, take Exit 11 onto Highway 24 towards Townville. About 1.5 miles past Townville, turn right onto Coneross Creek Road. Follow signs to the park entrance.  699 CONEROSS PARK ROAD, Townville, SC 29689\n", "facility_email"=>"", "facility_phone"=>"888-893-0678 (HARTWELL PROJECT OFFICE)"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "CONEROSS PARK"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.5ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "CONEROSS PARK"], ["facility_description", "<h2>Overview</h2>\n  \nConeross Campground is a moderately sloping, heavily wooded 136 acre site of mixed hardwoods and pines. The site presently offers camping and boat launching facilities to include: 1 gatehouse/entrance, 2 park attendant campsites, 106 public use campsites (94 with full water and electric hookups and 12 primitive sites with impact pad only), 4 comfort stations with showers, 2 dump stations, 1 boat ramp, 1 courtesy dock, 4 playgrounds, 2 designated swim areas/beaches, and associated paved roads and parking areas throughout. <h2>Recreation</h2>\nFishing is one of the most popular activities at the lake. Sought-after species include largemouth bass, bream, crappie, catfish, striped bass and hybrid bass. \n<br/><br/>\nThe lake appeals to boaters of all kinds, whether their specialty is canoeing, sailing or motor boating. Coves and areas of quiet water provide water skiers with excellent surfaces.\n<br/><br/>\nSwimmers will find sand beaches and designated swim areas along the shoreline. <h2>Facilities</h2>\n The site presently offers camping and boat launching facilities to include: 1 gatehouse/entrance, 2 park attendant campsites, 106 public use campsites (94 with full water and electric hookups and 12 primitive sites with impact pad only), 4 comfort stations with showers, 2 dump stations, 1 boat ramp, 1 courtesy dock, 4 playgrounds, 2 designated swim areas/beaches, and associated paved roads and parking areas throughout.  <h2>Natural Features</h2>\n \nHartwell Lake is a man-made lake bordering Georgia and South Carolina on the Savannah, Tugaloo and Seneca Rivers. The dam and lake area boasts 8 campgrounds and 11 day-use facilities that are operated by the US Army Corps of Engineers. \nThe Hartwell Project was originally authorized for hydropower, flood control, and navigation. Later, recreation, water quality, water supply, and fish and wildlife management were added. \nSurrounding vegetation allows for plenty of shade, and the 962 miles of shoreline provide numerous swimming beaches, picnic areas and boat ramps. \n\n<h2>Nearby Attractions</h2>\nThe campground is a short drive away from Clemson, South Carolina and Clemson University, offering additional tourism opportunities, along with grocery stores, gas stations and restaurants.<h2>Charges &amp; Cancellations</h2>\n\n- Once your reservation has been created, there will be a $10.00 fee to cancel and a $10.00 fee to change your site or dates.\n- Cancellations made the day before, or up to the day after your arrival date will also be charged the first night use fee.\n- Reserved campsites will be held until check out time ( 2 p.m.) on the day following your scheduled arrival date.  If you do not arrive at campground by 2 p.m. to fulfill your reservation, your reservation will be cancelled and you will be assessed a $20 service fee and forfeit the first night use fee.  \n- If your reservation is for one night and you have been charged the first nights use fee, there is no $10 service fee.\nRefunds: \n- To insure fairness for all Recreation.gov customers, any reservation with departure dates outside the 6 or 12 month maximum window cannot be changed or cancelled until 18 days after the reservation is made.\n- Refunds must be requested no later than 14 days after scheduled departure date.  Refunds may be requested through NNRS Customer Service at 888-448-1474.  Refunds for bank card payments will be issued as a credit to the original bank card.  Cash and check purchases will be refunded by check and may take up to 8 weekds for approval and processing.  "], ["facility_id", "232555"], ["facility_directions", "From Interstate 85 in South Carolina, take Exit 11 onto Highway 24 towards Townville. About 1.5 miles past Townville, turn right onto Coneross Creek Road. Follow signs to the park entrance.  699 CONEROSS PARK ROAD, Townville, SC 29689\n"], ["facility_email", ""], ["facility_phone", "888-893-0678 (HARTWELL PROJECT OFFICE)"], ["user_id", 1], ["created_at", "2021-02-26 20:05:37.399754"], ["updated_at", "2021-02-26 20:05:37.399754"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4168)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 15:05:42 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"CRESCENT", "facility_description"=>"<h2>Overview</h2>\n<p>MUST BE RESERVED A MINIMUM OF TWO DAYS IN ADVANCE OF ARRIVAL DATE.  Crescent Group Campground  is a 41 acre site located on a narrow peninsula with gentle slopes and a scattered tree cover of pine and mixed hardwoods. The campground is specifically designated for group camping, consisting of two separate reservable loops. The site presently offers 2 park attendant/volunteer host campsites, 10 campsites on Loop A and 22 campsites on Loop B with full water and electric hookups, 2 standard shelters with water and electric service (1 on each loop), 2 comfort stations (1 with showers), 1 dump station, 1 playground, and associated paved and gravel roads and parking areas throughout. No boat ramp or courtesy dock is available at this site.</p>\n<h2>Recreation</h2>\nFishing is one of the most popular activities at the lake. Sought-after species include largemouth bass, bream, crappie, catfish, striped bass and hybrid bass. \n<br/><br/>\nThe lake appeals to boaters of all kinds, whether their specialty is canoeing, sailing or motor boating. Coves and areas of quiet water provide water skiers with excellent surfaces.\n<br/><br/>\nSwimmers will find sand beaches and designated swim areas along the shoreline. <h2>Facilities</h2>\nThe site presently offers 10 campsites on Loop A and 22 campsites on Loop B with full water and electric hookups, 2 standard shelters with water and electric service (1 on each loop), 2 comfort stations (1 with showers), 1 dump station, 1 playground, and associated paved and gravel roads and parking areas throughout. No boat ramp or courtesy dock is available at this site. <h2>Natural Features</h2>\n \nHartwell Lake is a man-made lake bordering Georgia and South Carolina on the Savannah, Tugaloo and Seneca Rivers. The dam and lake area boasts 8 campgrounds and 11 day-use facilities that are operated by the US Army Corps of Engineers. \nThe Hartwell Project was originally authorized for hydro-power, flood control, and navigation. Later, recreation, water quality, water supply and fish and wildlife management were added. \nSurrounding vegetation allows for plenty of shade, and the 962 miles of shoreline provide numerous swimming beaches, picnic areas and boat ramps. \n<h2>Nearby Attractions</h2>\nThe campground is a short drive away from Clemson, South Carolina and Clemson University, offering additional tourism opportunities, along with grocery stores, gas stations and restaurants.<h2>Charges &amp; Cancellations</h2>\n   \n- Once your reservation has been created, there will be a $10.00 fee to cancel and a $10.00 fee to change your site or dates.\n- Cancellations made the day before, or up to the day after your arrival date will also be charged the first night use fee.\n- Reserved campsites will be held until check out time ( 2 p.m.) on the day following your scheduled arrival date. If you do not arrive at campground by 2 p.m. to fulfill your reservation, your reservation will be cancelled and you will be assessed a $20 service fee and forfeit the first night use fee. \n- If your reservation is for one night and you have been charged the first nights use fee, there is no $10 service fee.\nRefunds: \n- To insure fairness for all Recreation.gov customers, any reservation with departure dates outside the 6 or 12 month maximum window cannot be changed or cancelled until 18 days after the reservation is made.\n- Refunds must be requested no later than 14 days after scheduled departure date. Refunds may be requested through NNRS Customer Service at 888-448-1474. Refunds for bank card payments will be issued as a credit to the original bank card. Cash and check purchases will be refunded by check and may take up to 8 weekds for approval and processing. ", "facility_id"=>"232561", "facility_directions"=>"From Hartwell, Georgia, take Hwy 29 north for approximately 8 miles (you will cross into South Carolina). Turn left onto Ginn Road. Take the first left onto Campers Way and continue straight to the campground.  From Anderson SC, take Hwy 29 South from Anderson, heading south towards Hartwell, Georgia, after the intersection with Hwy 187 (4-way stop), continue south on Hwy 29 until you see sign for Crescent.  It is located about 4 miles before the Ga/SC border.  \n150 Campers Way\nStarr, SC 29684", "facility_email"=>"", "facility_phone"=>"888-893-0678"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "CRESCENT"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.4ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "CRESCENT"], ["facility_description", "<h2>Overview</h2>\n<p>MUST BE RESERVED A MINIMUM OF TWO DAYS IN ADVANCE OF ARRIVAL DATE.  Crescent Group Campground  is a 41 acre site located on a narrow peninsula with gentle slopes and a scattered tree cover of pine and mixed hardwoods. The campground is specifically designated for group camping, consisting of two separate reservable loops. The site presently offers 2 park attendant/volunteer host campsites, 10 campsites on Loop A and 22 campsites on Loop B with full water and electric hookups, 2 standard shelters with water and electric service (1 on each loop), 2 comfort stations (1 with showers), 1 dump station, 1 playground, and associated paved and gravel roads and parking areas throughout. No boat ramp or courtesy dock is available at this site.</p>\n<h2>Recreation</h2>\nFishing is one of the most popular activities at the lake. Sought-after species include largemouth bass, bream, crappie, catfish, striped bass and hybrid bass. \n<br/><br/>\nThe lake appeals to boaters of all kinds, whether their specialty is canoeing, sailing or motor boating. Coves and areas of quiet water provide water skiers with excellent surfaces.\n<br/><br/>\nSwimmers will find sand beaches and designated swim areas along the shoreline. <h2>Facilities</h2>\nThe site presently offers 10 campsites on Loop A and 22 campsites on Loop B with full water and electric hookups, 2 standard shelters with water and electric service (1 on each loop), 2 comfort stations (1 with showers), 1 dump station, 1 playground, and associated paved and gravel roads and parking areas throughout. No boat ramp or courtesy dock is available at this site. <h2>Natural Features</h2>\n \nHartwell Lake is a man-made lake bordering Georgia and South Carolina on the Savannah, Tugaloo and Seneca Rivers. The dam and lake area boasts 8 campgrounds and 11 day-use facilities that are operated by the US Army Corps of Engineers. \nThe Hartwell Project was originally authorized for hydro-power, flood control, and navigation. Later, recreation, water quality, water supply and fish and wildlife management were added. \nSurrounding vegetation allows for plenty of shade, and the 962 miles of shoreline provide numerous swimming beaches, picnic areas and boat ramps. \n<h2>Nearby Attractions</h2>\nThe campground is a short drive away from Clemson, South Carolina and Clemson University, offering additional tourism opportunities, along with grocery stores, gas stations and restaurants.<h2>Charges &amp; Cancellations</h2>\n   \n- Once your reservation has been created, there will be a $10.00 fee to cancel and a $10.00 fee to change your site or dates.\n- Cancellations made the day before, or up to the day after your arrival date will also be charged the first night use fee.\n- Reserved campsites will be held until check out time ( 2 p.m.) on the day following your scheduled arrival date. If you do not arrive at campground by 2 p.m. to fulfill your reservation, your reservation will be cancelled and you will be assessed a $20 service fee and forfeit the first night use fee. \n- If your reservation is for one night and you have been charged the first nights use fee, there is no $10 service fee.\nRefunds: \n- To insure fairness for all Recreation.gov customers, any reservation with departure dates outside the 6 or 12 month maximum window cannot be changed or cancelled until 18 days after the reservation is made.\n- Refunds must be requested no later than 14 days after scheduled departure date. Refunds may be requested through NNRS Customer Service at 888-448-1474. Refunds for bank card payments will be issued as a credit to the original bank card. Cash and check purchases will be refunded by check and may take up to 8 weekds for approval and processing. "], ["facility_id", "232561"], ["facility_directions", "From Hartwell, Georgia, take Hwy 29 north for approximately 8 miles (you will cross into South Carolina). Turn left onto Ginn Road. Take the first left onto Campers Way and continue straight to the campground.  From Anderson SC, take Hwy 29 South from Anderson, heading south towards Hartwell, Georgia, after the intersection with Hwy 187 (4-way stop), continue south on Hwy 29 until you see sign for Crescent.  It is located about 4 miles before the Ga/SC border.  \n150 Campers Way\nStarr, SC 29684"], ["facility_email", ""], ["facility_phone", "888-893-0678"], ["user_id", 1], ["created_at", "2021-02-26 20:05:42.394499"], ["updated_at", "2021-02-26 20:05:42.394499"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 4169)
+
+
+Started DELETE "/users/1/recreational_areas/145" for ::1 at 2021-02-26 15:05:49 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"145", "recreational_area"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 145], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 145]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 3703)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 15:06:03 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 2040)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 15:06:11 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 15:06:19 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 241ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:06:20 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.5ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.7ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:14 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 3426)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:16 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:18 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:23 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:26 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.5ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:23:42 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:09 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:18 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:21 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:25 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:37 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 3386)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:24:46 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:25:14 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:26:03 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:27:54 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:28:02 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 15:31:18 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 225ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 956)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:31:19 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:31:44 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:32:21 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 3385)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 15:33:41 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 255ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:33:42 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.3ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:37:27 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:45:13 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 3426)
+
+
+Started GET "/users/2/recreational_areas" for ::1 at 2021-02-26 15:55:17 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 3426)
+
+
