@@ -4,7 +4,8 @@ export const searchQuery = (queries) =>
     
     url.search = new URLSearchParams(queries);
 
-    return (dispatch =>
+    return (
+        dispatch =>
         {
             fetch(url)
                 .then(res => res.json())
@@ -26,7 +27,8 @@ export const searchQuery = (queries) =>
 
 export const clearSearch = () =>
 {
-    return (dispatch =>
+    return (
+        dispatch =>
         {
             dispatch(
                 {

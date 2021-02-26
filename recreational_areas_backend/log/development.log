@@ -15800,3 +15800,120 @@ Processing by SessionsController#logout as */*
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
 
 
+Started POST "/sessions" for ::1 at 2021-02-26 13:54:33 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 211ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 961)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:54:33 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.6ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.8ms | Allocations: 1620)
+
+
+Started GET "/search?keyword=&activity=&state=" for ::1 at 2021-02-26 13:54:34 -0500
+Processing by SearchController#search as */*
+  Parameters: {"keyword"=>"", "activity"=>"", "state"=>""}
+Completed 200 OK in 352ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 23600)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:54:36 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Rainy Lake Campsites", "facility_description"=>"Campsites located on Rainy Lake.", "facility_id"=>"10116985", "facility_directions"=>"More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>.", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Rainy Lake Campsites"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (1.2ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Rainy Lake Campsites"], ["facility_description", "Campsites located on Rainy Lake."], ["facility_id", "10116985"], ["facility_directions", "More information is available at <a href='http://www.nps.gov/voya/'>http://www.nps.gov/voya/</a>."], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:54:36.894954"], ["updated_at", "2021-02-26 18:54:36.894954"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 4121)
+
+
+Started POST "/users/1/recreational_areas" for ::1 at 2021-02-26 13:54:37 -0500
+Processing by RecreationalAreasController#create as JSON
+  Parameters: {"recreational_area"=>{"facility_name"=>"Red Rock Canyon Backcountry Late Exit Pass", "facility_description"=>"", "facility_id"=>"f4d17453-0cba-11eb-b57c-4a047fce61ec", "facility_directions"=>"", "facility_email"=>"", "facility_phone"=>""}, "user_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "recreational_areas" WHERE "recreational_areas"."facility_name" = ? AND "recreational_areas"."user_id" = ? LIMIT ?[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[36mRecreationalArea Create (0.9ms)[0m  [1m[32mINSERT INTO "recreational_areas" ("facility_name", "facility_description", "facility_id", "facility_directions", "facility_email", "facility_phone", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["facility_name", "Red Rock Canyon Backcountry Late Exit Pass"], ["facility_description", ""], ["facility_id", "f4d17453-0cba-11eb-b57c-4a047fce61ec"], ["facility_directions", ""], ["facility_email", ""], ["facility_phone", ""], ["user_id", 1], ["created_at", "2021-02-26 18:54:37.514583"], ["updated_at", "2021-02-26 18:54:37.514583"]]
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:20:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.6ms | Allocations: 4110)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 13:54:38 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started POST "/sessions" for ::1 at 2021-02-26 13:54:44 -0500
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 209ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 941)
+
+
+Started GET "/users/1/recreational_areas" for ::1 at 2021-02-26 13:54:44 -0500
+Processing by RecreationalAreasController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.4ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 1954)
+
+
+Started DELETE "/users/1/recreational_areas/135" for ::1 at 2021-02-26 13:54:46 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"135", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.2ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 135], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 135]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 3568)
+
+
+Started DELETE "/users/1/recreational_areas/134" for ::1 at 2021-02-26 13:54:47 -0500
+Processing by RecreationalAreasController#destroy as JSON
+  Parameters: {"user_id"=>"1", "id"=>"134", "recreational_area"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:42:in `find_user'
+  [1m[36mRecreationalArea Load (0.1ms)[0m  [1m[34mSELECT "recreational_areas".* FROM "recreational_areas" WHERE "recreational_areas"."user_id" = ? AND "recreational_areas"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 134], ["LIMIT", 1]]
+  ↳ app/controllers/recreational_areas_controller.rb:28:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[36mRecreationalArea Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recreational_areas" WHERE "recreational_areas"."id" = ?[0m  [["id", 134]]
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recreational_areas_controller.rb:30:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 3543)
+
+
+Started DELETE "/logout" for ::1 at 2021-02-26 13:54:48 -0500
+Processing by SessionsController#logout as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 202)
+
+

@@ -49,79 +49,83 @@ export const userSignUp = (user, history) =>
 
 export const userLogIn = (user, history) =>
 {
-    return dispatch =>
-    {
-        fetch(BASE_URL + "/sessions",
+    return (
+        dispatch =>
         {
-            method: "POST",
-            headers:
+            fetch(BASE_URL + "/sessions",
             {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({ user: user })
-        })
-            .then(res => res.json())
-            .then(data =>
-            {
-                if (data.status >= 400)
+                method: "POST",
+                headers:
                 {
-                    dispatch(
-                        {
-                            type: "AUTH_FAIL",
-                            payload: data
-                        }
-                    )
-                }
-                else
-                {
-                    dispatch(
-                        {
-                            type: "AUTH_SUCCESS",
-                            payload:
-                            {
-                                loggedIn: data.logged_in,
-                                currentUser: data.user
-                            }
-                        }
-                    );
-
-                    history.push("/");
-                }
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({ user: user })
             })
-    };
+                .then(res => res.json())
+                .then(data =>
+                {
+                    if (data.status >= 400)
+                    {
+                        dispatch(
+                            {
+                                type: "AUTH_FAIL",
+                                payload: data
+                            }
+                        )
+                    }
+                    else
+                    {
+                        dispatch(
+                            {
+                                type: "AUTH_SUCCESS",
+                                payload:
+                                {
+                                    loggedIn: data.logged_in,
+                                    currentUser: data.user
+                                }
+                            }
+                        );
+
+                        history.push("/");
+                    }
+                })
+        }
+    )
 }
 
 export const userLogOut = (history) =>
 {
-    return dispatch =>
-    {
-        fetch(BASE_URL + "/logout",
+    return (
+        dispatch =>
         {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data =>
+            fetch(BASE_URL + "/logout",
             {
-                dispatch(
-                    {
-                        type: "CLEAR_SEARCH"
-                    }
-                )
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data =>
+                {
+                    dispatch(
+                        {
+                            type: "CLEAR_SEARCH"
+                        }
+                    )
 
-                dispatch(
-                    {
-                        type: "CLEAR_FAVORITES"
-                    }
-                )
+                    dispatch(
+                        {
+                            type: "CLEAR_FAVORITES"
+                        }
+                    )
 
-                dispatch(
-                    {
-                        type: "LOGOUT"
-                    }
-                );
+                    dispatch(
+                        {
+                            type: "LOGOUT"
+                        }
+                    );
 
-                history.push("/");
-            });
-    };
+                    history.push("/");
+                });
+        }
+    )
 }

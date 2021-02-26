@@ -95,6 +95,7 @@ export const deleteFavorites = (areaData, currentUser) =>
 
     return (
         dispatch =>
+        {
             fetch(URL,
             {
                 method: "DELETE",
@@ -116,5 +117,6 @@ export const deleteFavorites = (areaData, currentUser) =>
                     }
                 )
                 .catch(err => console.log(err.message))
+        }
     )
 }
