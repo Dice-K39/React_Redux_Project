@@ -14,17 +14,23 @@ function App() {
   return (
     <div className="App" style={{ backgroundImage: `url(${background})` }}>
       <Router>
+
         <NavBar />
+
          <Switch>
+
           <Route path="/signup" component={UserSignUp} />
           <Route path="/login" component={UserLogIn} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route exact path="/" component={HomeContainer} />
+
           <Route>
             <InvalidPath />
           </Route>
+
          </Switch>
+         
       </Router>
     </div>
   );
