@@ -33,13 +33,13 @@ class UserLogIn extends Component
         return (
             <div className="log-in">
                 <form onSubmit={this.handleOnSubmit}>
-                    <label className="label">Email:</label>
+                    <label className="label has-text-white">Email:</label>
                     <input className="input" type="text" name="email" value={this.state.email} onChange={this.handleOnChange} />
 
                     <br />
                     <br />
 
-                    <label className="label">Password:</label>
+                    <label className="label has-text-white">Password:</label>
                     <input className="input" type="password" name="password" value={this.state.password} onChange={this.handleOnChange} />
 
                     <br />
